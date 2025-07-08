@@ -1,0 +1,49 @@
+﻿@model DataTable
+@using System.Data
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>IsActive</th>
+            <th>Created</th>
+            <th>IsActive</th>
+            <th>Modified</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DataRow row in Model.Rows)
+        {
+            <tr>
+                <td>@row["UserName"]</td>
+                <td>@row["Email"]</td>
+                <td>@row["IsActive"]</td> 
+                <td>@row["Created"]</td>
+                <td>
+                    @if (Convert.ToBoolean(row["IsActive"]))
+                    {
+                        <span class="badge bg-success">Active</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">Not Active</span>
+                    }
+                </td>
+                <td>@row["Modified"]</td>
+                <td>
+               
+                    <a asp-controller="User" asp-action="Index" class="btn btn-warning rounded-pill">Edit</a>
+                    <a asp-controller="User"
+                       asp-action="UserDelete"
+                       asp-route-UserID="@row["UserID"]"
+                       class="btn btn-danger rounded-pill">
+                        Delete
+                    </a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
