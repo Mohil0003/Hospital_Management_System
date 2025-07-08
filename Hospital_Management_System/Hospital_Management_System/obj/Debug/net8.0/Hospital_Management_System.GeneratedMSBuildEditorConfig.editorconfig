@@ -9,89 +9,89 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Hospital_Management_System
 build_property.RootNamespace = Hospital_Management_System
-build_property.ProjectDir = D:\ASP.net\Hospital_Management_System\Hospital_Management_System\
+build_property.ProjectDir = D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\ASP.net\Hospital_Management_System\Hospital_Management_System
+build_property.MSBuildProjectDirectory = D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/Appointment/AppointmentAddEdit.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Appointment/AppointmentAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcQXBwb2ludG1lbnRBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/Appointment/AppointmentList.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Appointment/AppointmentList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcQXBwb2ludG1lbnRMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/Department/DepartmentAddEdit.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Department/DepartmentAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxEZXBhcnRtZW50QWRkRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/Department/DepartmentList.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Department/DepartmentList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxEZXBhcnRtZW50TGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/DoctorDepartment/DoctorDepartmentAddEdit.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/DoctorDepartment/DoctorDepartmentAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yRGVwYXJ0bWVudFxEb2N0b3JEZXBhcnRtZW50QWRkRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/DoctorDepartment/DoctorDepartmentList.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/DoctorDepartment/DoctorDepartmentList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yRGVwYXJ0bWVudFxEb2N0b3JEZXBhcnRtZW50TGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/Doctor/DoctorAddEdit.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Doctor/DoctorAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yXERvY3RvckFkZEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/Doctor/DoctorList.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Doctor/DoctorList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yXERvY3Rvckxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/Home/Index.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/Home/Privacy.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/Patient/PatientAddEdit.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Patient/PatientAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxQYXRpZW50QWRkRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/Patient/PatientList.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Patient/PatientList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxQYXRpZW50TGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/Shared/Error.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/User/UserAddEdit.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/User/UserAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyQWRkRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/User/UserList.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/User/UserList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/_ViewImports.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/_ViewStart.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Hospital_Management_System/Hospital_Management_System/Views/Shared/_Layout.cshtml]
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-47q26s0v87
