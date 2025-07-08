@@ -113,4 +113,11 @@ END
 -- ========================================
 -- Delete Doctor
 -- ========================================
+CREATE OR ALTER PROCEDURE PR_Doctor_Delete
+    @DoctorID INT
+AS
+BEGIN
+    DELETE FROM Doctor
+    WHERE DoctorID = @DoctorID
+END
 
