@@ -55,6 +55,8 @@
 @model DataTable
 @using System.Data
 
+@TempData["ErrorMessage"]
+
 <table class="table table-striped table-bordered align-middle">
     <thead class="table-dark">
         <tr>
@@ -91,15 +93,44 @@
                        class="btn btn-sm btn-warning rounded-pill me-1">
                         Edit
                     </a>
-                    <a asp-controller="User"
+                    @* <a asp-controller="User"
                        asp-action="UserDelete"
                        asp-route-UserID="@row["UserID"]"
                        class="btn btn-sm btn-danger rounded-pill"
-                       onclick="return confirm('Are you sure you want to delete this user?');">
+                       >
+                        Delete
+                    </a> *@
+                    <a href="@Url.Action("UserDelete", "User", new { UserID = row["UserID"] })"
+                       class="btn btn-sm btn-danger rounded-pill"
+                       onclick="confirmDelete(this)">
                         Delete
                     </a>
+
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<script>
+    function confirmDelete(element) {
+        event.preventDefault(); // Stop default navigation
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "This user will be permanently deleted!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = element.href; // Redirect if confirmed
+
+            }
+        });
+
+        return false; // Prevent default action
+    }
+</script>
