@@ -1,57 +1,70 @@
-﻿<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">Doctor-Department List</h5>
+﻿@model DataTable
+@using System.Data
 
-        <!-- Dark Table -->
-        <table class="table table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Start Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td>2016-05-25</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Bridie Kessler</td>
-                    <td>Developer</td>
-                    <td>35</td>
-                    <td>2014-12-05</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Ashleigh Langosh</td>
-                    <td>Finance</td>
-                    <td>45</td>
-                    <td>2011-08-12</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Angus Grady</td>
-                    <td>HR</td>
-                    <td>34</td>
-                    <td>2012-06-11</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Raheem Lehner</td>
-                    <td>Dynamic Division Officer</td>
-                    <td>47</td>
-                    <td>2011-04-19</td>
-                </tr>
-            </tbody>
-        </table>
-        <!-- End Dark Table -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
+<div class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">Doctor-Department Mappings</h4>
+            <a asp-controller="DoctorDepartment" asp-action="Index" class="btn btn-light fw-bold text-primary">
+                <i class="bi bi-plus-circle"></i> Add Mapping
+            </a>
+        </div>
+
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover text-center align-middle mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Doctor ID</th>
+                            <th>Department ID</th>
+                            <th>User ID</th>
+                            <th>Created</th>
+                            <th>Modified</th>
+                            <th style="width: 120px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Rows.Count == 0)
+                        {
+                            <tr>
+                                <td colspan="6" class="text-muted py-3">No mappings found.</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (DataRow row in Model.Rows)
+                            {
+                                <tr>
+                                    <td>@row["DoctorID"]</td>
+                                    <td>@row["DepartmentID"]</td>
+                                    <td>@row["UserID"]</td>
+                                    <td>@Convert.ToDateTime(row["Created"]).ToString("yyyy-MM-dd")</td>
+                                    <td>@Convert.ToDateTime(row["Modified"]).ToString("yyyy-MM-dd")</td>
+                                    <td>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <a asp-controller="DoctorDepartment"
+                                               asp-action="Index"
+                                               asp-route-DoctorDepartmentID="@row["DoctorDepartmentID"]"
+                                               class="btn btn-sm btn-outline-warning" title="Edit">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </a>
+                                            <a asp-controller="DoctorDepartment"
+                                               asp-action="DoctorDepartmentDelete"
+                                               asp-route-DoctorDepartmentID="@row["DoctorDepartmentID"]"
+                                               onclick="return confirm('Are you sure you want to delete this mapping?');"
+                                               class="btn btn-sm btn-outline-danger" title="Delete">
+                                                <i class="bi bi-trash3-fill"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>

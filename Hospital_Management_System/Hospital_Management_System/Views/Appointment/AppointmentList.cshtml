@@ -18,11 +18,12 @@
                 <table class="table table-striped table-hover align-middle text-center mb-0">
                     <thead class="table-dark">
                         <tr>
-                            <th>Doctor</th>
-                            <th>Patient</th>
+                            <th>Doctor ID</th>
+                            <th>Patient ID</th>
                             <th>Appointment Date</th>
-                            <th>Time Slot</th>
+                            <th>Remarks</th>
                             <th>Status</th>
+                            <th>Description</th>
                             <th>Created</th>
                             <th>Modified</th>
                             <th>Actions</th>
@@ -40,16 +41,17 @@
                             @foreach (DataRow row in Model.Rows)
                             {
                                 <tr>
-                                    <td>@row["DoctorName"]</td>
-                                    <td>@row["PatientName"]</td>
+                                    <td>@row["DoctorID"]</td>
+                                    <td>@row["PatientID"]</td>
                                     <td>@Convert.ToDateTime(row["AppointmentDate"]).ToString("yyyy-MM-dd")</td>
-                                    <td>@row["TimeSlot"]</td>
+                                    <td>@row["SpecialRemarks"]</td>
+                                    <td>@row["Description"]</td>
                                     <td>
-                                        @if (row["Status"].ToString() == "Confirmed")
+                                        @if (row["AppointmentStatus"].ToString() == "Confirmed")
                                         {
                                             <span class="badge bg-success">Confirmed</span>
                                         }
-                                        else if (row["Status"].ToString() == "Pending")
+                                        else if (row["AppointmentStatus"].ToString() == "Pending")
                                         {
                                             <span class="badge bg-warning text-dark">Pending</span>
                                         }
