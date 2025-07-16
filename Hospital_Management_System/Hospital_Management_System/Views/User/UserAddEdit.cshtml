@@ -1,62 +1,61 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add User - Hospital Management</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: #f1f4f9;
-        }
+﻿@model Hospital_Management_System.Models.UserModel
 
-        .form-container {
-            max-width: 500px;
-            margin: 50px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 1rem;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-        }
-    </style>
-</head>
-<body>
+@{
+    ViewData["Title"] = Model.UserID == 0 ? "Add User" : "Edit User";
+}
 
-    <div class="container">
-        <div class="form-container">
-            <h3 class="text-center mb-4">Add New User</h3>
-            <form method="post" action="/User/Add">
-                <!-- Adjust action URL as per backend -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white fw-bold">
+            @ViewData["Title"]
+        </div>
+        <div class="card-body">
+            <form asp-action="SaveUser" asp-controller="User" method="post" novalidate>
+                <input type="hidden" asp-for="UserID" />
+                <input type="hidden" asp-for="Modified" value="@DateTime.Now" />
 
                 <div class="mb-3">
-                    <label for="UserName" class="form-label">User Name</label>
-                    <input type="text" class="form-control" id="UserName" name="UserName" required>
+                    <label asp-for="UserName" class="form-label fw-bold">User Name</label>
+                    <input asp-for="UserName" class="form-control" placeholder="Enter user name" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label for="Password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="Password" name="Password" required>
+                    <label asp-for="Password" class="form-label fw-bold">Password</label>
+                    <input asp-for="Password" class="form-control" placeholder="Enter password" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label for="Email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="Email" name="Email" required>
+                    <label asp-for="Email" class="form-label fw-bold">Email</label>
+                    <input asp-for="Email" class="form-control" placeholder="Enter email address" type="email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label for="MobileNo" class="form-label">Mobile No</label>
-                    <input type="tel" class="form-control" id="MobileNo" name="MobileNo" required>
+                    <label asp-for="MobileNo" class="form-label fw-bold">Mobile Number</label>
+                    <input asp-for="MobileNo" class="form-control" placeholder="Enter mobile number" />
+                    <span asp-validation-for="MobileNo" class="text-danger"></span>
                 </div>
 
-                <input type="hidden" name="Modified" value="<%= DateTime.Now.ToString(" yyyy-MM-ddTHH:mm:ss") %>
-                <!-- If using Razor: value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")" -->
+                <div class="form-check mb-3">
+                    <input asp-for="IsActive" class="form-check-input" type="checkbox" />
+                    <label asp-for="IsActive" class="form-check-label fw-bold">Active</label>
+                </div>
 
-                <button type="submit" class="btn btn-primary w-100">Add User</button>
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">
+                        @(Model.UserID == 0 ? "Add User" : "Update User")
+                    </button>
+                    <a asp-action="UserList" class="btn btn-secondary">Cancel</a>
+                </div>
             </form>
         </div>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-</html>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

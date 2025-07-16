@@ -17,9 +17,9 @@
                 <table class="table table-bordered table-hover text-center align-middle mb-0">
                     <thead class="table-dark">
                         <tr>
-                            <th>Doctor ID</th>
-                            <th>Department ID</th>
-                            <th>User ID</th>
+                            <th>Doctor Name</th>
+                            <th>Department Name</th>
+                            <th>Created By</th>
                             <th>Created</th>
                             <th>Modified</th>
                             <th style="width: 120px;">Actions</th>
@@ -37,9 +37,9 @@
                             @foreach (DataRow row in Model.Rows)
                             {
                                 <tr>
-                                    <td>@row["DoctorID"]</td>
-                                    <td>@row["DepartmentID"]</td>
-                                    <td>@row["UserID"]</td>
+                                    <td>@row["DoctorName"]</td>
+                                    <td>@row["DepartmentName"]</td>
+                                    <td>@row["UserName"]</td>
                                     <td>@Convert.ToDateTime(row["Created"]).ToString("yyyy-MM-dd")</td>
                                     <td>@Convert.ToDateTime(row["Modified"]).ToString("yyyy-MM-dd")</td>
                                     <td>

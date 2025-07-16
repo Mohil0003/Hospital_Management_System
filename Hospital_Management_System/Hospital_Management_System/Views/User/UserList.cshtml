@@ -1,120 +1,77 @@
-﻿@* @model DataTable
+﻿@model DataTable
 @using System.Data
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>User Name</th>
-            <th>Email</th>
-            <th>IsActive</th>
-            <th>Created</th>
-            <th>IsActive</th>
-            <th>Modified</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (DataRow row in Model.Rows)
-        {
-            <tr>
-                <td>@row["UserName"]</td>
-                <td>@row["Email"]</td>
-                <td>@row["IsActive"]</td> 
-                <td>@row["Created"]</td>
-                <td>
-                    @if (Convert.ToBoolean(row["IsActive"]))
-                    {
-                        <span class="badge bg-success">Active</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-secondary">Not Active</span>
-                    }
-                </td>
-                <td>@row["Modified"]</td>
-                <td>
-               
-                    <a asp-controller="User" asp-action="Index" class="btn btn-warning rounded-pill">Edit</a>
-                    <a asp-controller="User"
-                       asp-action="UserDelete"
-                       asp-route-UserID="@row["UserID"]"
-                       class="btn btn-danger rounded-pill">
-                        Delete
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="fw-bold text-primary">Users List</h3>
+        <a asp-controller="User" asp-action="Index" class="btn btn-primary">
+            <i class="bi bi-person-plus-fill"></i> Add User
+        </a>
+    </div>
 
-                    </a>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
 
-                </td>
-            </tr>
-        }
-    </tbody>
-</table> *@
-
-
-
-@model DataTable
-@using System.Data
-
-@TempData["ErrorMessage"]
-
-<table class="table table-striped table-bordered align-middle">
-    <thead class="table-dark">
-        <tr>
-            <th>User Name</th>
-            <th>Email</th>
-            <th>Status</th>
-            <th>Created</th>
-            <th>Modified</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (DataRow row in Model.Rows)
-        {
-            <tr>
-                <td>@row["UserName"]</td>
-                <td>@row["Email"]</td>
-                <td>
-                    @if (Convert.ToBoolean(row["IsActive"]))
-                    {
-                        <span class="badge bg-success">Active</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-secondary">Inactive</span>
-                    }
-                </td>
-                <td>@Convert.ToDateTime(row["Created"]).ToString("dd-MMM-yyyy")</td>
-                <td>@Convert.ToDateTime(row["Modified"]).ToString("dd-MMM-yyyy")</td>
-                <td>
-                    <a asp-controller="User"
-                       asp-action="Index"
-                       asp-route-UserID="@row["UserID"]"
-                       class="btn btn-sm btn-warning rounded-pill me-1">
-                        Edit
-                    </a>
-                    @* <a asp-controller="User"
-                       asp-action="UserDelete"
-                       asp-route-UserID="@row["UserID"]"
-                       class="btn btn-sm btn-danger rounded-pill"
-                       >
-                        Delete
-                    </a> *@
-                    <a href="@Url.Action("UserDelete", "User", new { UserID = row["UserID"] })"
-                       class="btn btn-sm btn-danger rounded-pill"
-                       onclick="confirmDelete(this)">
-                        Delete
-                    </a>
-
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered align-middle text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Created</th>
+                    <th>Modified</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DataRow row in Model.Rows)
+                {
+                    <tr>
+                        <td>@row["UserName"]</td>
+                        <td>@row["Email"]</td>
+                        <td>
+                            @if (Convert.ToBoolean(row["IsActive"]))
+                            {
+                                <span class="badge bg-success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Inactive</span>
+                            }
+                        </td>
+                        <td>@Convert.ToDateTime(row["Created"]).ToString("dd-MMM-yyyy")</td>
+                        <td>@Convert.ToDateTime(row["Modified"]).ToString("dd-MMM-yyyy")</td>
+                        <td>
+                            <a asp-controller="User"
+                               asp-action="Edit"
+                               asp-route-UserID="@row["UserID"]"
+                               class="btn btn-sm btn-warning rounded-pill me-1">
+                                Edit
+                            </a>
+                            <a href="@Url.Action("UserDelete", "User", new { UserID = row["UserID"] })"
+                               class="btn btn-sm btn-danger rounded-pill"
+                               onclick="return confirmDelete(this)">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
 <script>
     function confirmDelete(element) {
-        event.preventDefault(); // Stop default navigation
+        event.preventDefault();
 
         Swal.fire({
             title: "Are you sure?",
@@ -126,11 +83,10 @@
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = element.href; // Redirect if confirmed
-
+                window.location.href = element.href;
             }
         });
 
-        return false; // Prevent default action
+        return false;
     }
 </script>

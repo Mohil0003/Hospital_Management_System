@@ -1,4 +1,4 @@
-﻿@model DataTable
+﻿@* @model DataTable
 @using System.Data
 
 <!-- Bootstrap Icons -->
@@ -58,6 +58,90 @@
                                         <div class="d-flex justify-content-center gap-2">
                                             <a asp-controller="Department"
                                                asp-action="Index"
+                                               asp-route-DepartmentID="@row["DepartmentID"]"
+                                               class="btn btn-sm btn-outline-warning"
+                                               title="Edit">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </a>
+                                            <a asp-controller="Department"
+                                               asp-action="DepartmentDelete"
+                                               asp-route-DepartmentID="@row["DepartmentID"]"
+                                               class="btn btn-sm btn-outline-danger"
+                                               title="Delete"
+                                               onclick="return confirm('Are you sure you want to delete this department?');">
+                                                <i class="bi bi-trash3-fill"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+@model DataTable
+@using System.Data
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<div class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">Department List</h4>
+            <a asp-controller="Department" asp-action="Index" class="btn btn-light fw-bold text-primary">
+                <i class="bi bi-plus-circle"></i> Add Department
+            </a>
+        </div>
+
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle text-center mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Department Name</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Created By</th> <!-- Changed -->
+                            <th>Created</th>
+                            <th>Modified</th>
+                            <th style="width: 100px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Rows.Count == 0)
+                        {
+                            <tr>
+                                <td colspan="7" class="text-muted text-center py-3">No departments found.</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (DataRow row in Model.Rows)
+                            {
+                                <tr>
+                                    <td class="fw-semibold">@row["DepartmentName"]</td>
+                                    <td>@row["Description"]</td>
+                                    <td>
+                                        @if (Convert.ToBoolean(row["IsActive"]))
+                                        {
+                                            <span class="badge bg-success px-3 py-2">Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger px-3 py-2">Inactive</span>
+                                        }
+                                    </td>
+                                    <td>@row["UserName"]</td> <!-- Show UserName -->
+                                    <td>@Convert.ToDateTime(row["Created"]).ToString("yyyy-MM-dd")</td>
+                                    <td>@Convert.ToDateTime(row["Modified"]).ToString("yyyy-MM-dd")</td>
+                                    <td>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <a asp-controller="Department"
+                                               asp-action="Edit"
                                                asp-route-DepartmentID="@row["DepartmentID"]"
                                                class="btn btn-sm btn-outline-warning"
                                                title="Edit">

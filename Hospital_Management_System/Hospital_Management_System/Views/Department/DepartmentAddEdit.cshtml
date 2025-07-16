@@ -1,30 +1,58 @@
-﻿<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">Department Form</h5>
+﻿@model Hospital_Management_System.Models.DepartmentModel
 
-        <!-- Vertical Form -->
-        <form class="row g-3">
-            <div class="col-12">
-                <label for="inputNanme4" class="form-label">Your Name</label>
-                <input type="text" class="form-control" id="inputNanme4">
-            </div>
-            <div class="col-12">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-12">
-                <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
-            </div>
-            <div class="col-12">
-                <label for="inputAddress" class="form-label">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
-            </div>
-        </form><!-- Vertical Form -->
+@{
+    ViewData["Title"] = Model.DepartmentID == 0 ? "Add Department" : "Edit Department";
+}
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white fw-bold">
+            @ViewData["Title"]
+        </div>
+        <div class="card-body">
+            <form asp-action="SaveDepartment" asp-controller="Department" method="post" novalidate>
+                <input type="hidden" asp-for="DepartmentID" />
+
+                <div class="mb-3">
+                    <label asp-for="DepartmentName" class="form-label fw-bold">Department Name</label>
+                    <input asp-for="DepartmentName" class="form-control" placeholder="Enter department name" />
+                    <span asp-validation-for="DepartmentName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label fw-bold">Description</label>
+                    <textarea asp-for="Description" class="form-control" placeholder="Optional description"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="UserID" class="form-label fw-bold">Created By (User)</label>
+                    <select asp-for="UserID" class="form-select" asp-items="ViewBag.UserList">
+                        <option value="">-- Select User --</option>
+                    </select>
+                    <span asp-validation-for="UserID" class="text-danger"></span>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input asp-for="IsActive" class="form-check-input" type="checkbox" />
+                    <label asp-for="IsActive" class="form-check-label fw-bold">Active</label>
+                </div>
+
+                <input type="hidden" asp-for="Modified" value="@DateTime.Now" />
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">
+                        @(Model.DepartmentID == 0 ? "Add Department" : "Update Department")
+                    </button>
+                    <a asp-action="DepartmentList" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
