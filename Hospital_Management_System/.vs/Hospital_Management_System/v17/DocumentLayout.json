@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\wwwroot\\assets\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\wwwroot\\assets\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\doctordepartment\\doctordepartmentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\views\\doctordepartment\\doctordepartmentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -39,19 +47,43 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DoctorDepartmentList.cshtml",
-              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
-              "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
-              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
-              "RelativeToolTip": "Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAwEYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T08:02:51.785Z",
+              "Title": "DepartmentController.cs",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\DepartmentController.cs",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Controllers\\DepartmentController.cs",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\DepartmentController.cs",
+              "RelativeToolTip": "Hospital_Management_System\\Controllers\\DepartmentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T07:15:58.283Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "style.css",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\wwwroot\\assets\\css\\style.css",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\wwwroot\\assets\\css\\style.css",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\wwwroot\\assets\\css\\style.css",
+              "RelativeToolTip": "Hospital_Management_System\\wwwroot\\assets\\css\\style.css",
+              "ViewState": "AgIAACgEAAAAAAAAAAAAAGcEAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-21T07:08:35.348Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DoctorDepartmentList.cshtml",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
+              "RelativeToolTip": "Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-16T08:02:51.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AppointmentList.cshtml",
               "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Appointment\\AppointmentList.cshtml",
               "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\Appointment\\AppointmentList.cshtml",
@@ -63,7 +95,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "DepartmentList.cshtml",
               "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Department\\DepartmentList.cshtml",
               "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\Department\\DepartmentList.cshtml",
@@ -75,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "DoctorList.cshtml",
               "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Doctor\\DoctorList.cshtml",
               "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\Doctor\\DoctorList.cshtml",
@@ -87,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "UserList.cshtml",
               "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\User\\UserList.cshtml",
               "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\User\\UserList.cshtml",
