@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 namespace Hospital_Management_System.Controllers
 {
 
-    
 
     public class UserController : Controller
     {
