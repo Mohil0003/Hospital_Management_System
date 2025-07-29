@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\patient\\patientaddedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -86,11 +86,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
@@ -102,31 +106,30 @@
               "RelativeToolTip": "Hospital_Management_System\\Views\\Patient\\PatientAddEdit.cshtml",
               "ViewState": "AgIAADUAAAAAAAAAAAAAwGIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-23T07:48:18.585Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T07:48:18.585Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PatientController.cs",
               "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\PatientController.cs",
               "RelativeDocumentMoniker": "Hospital_Management_System\\Controllers\\PatientController.cs",
               "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\PatientController.cs",
               "RelativeToolTip": "Hospital_Management_System\\Controllers\\PatientController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwCYAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwCUAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-23T07:47:28.757Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "DepartmentController.cs",
               "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\DepartmentController.cs",
               "RelativeDocumentMoniker": "Hospital_Management_System\\Controllers\\DepartmentController.cs",
               "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\DepartmentController.cs",
               "RelativeToolTip": "Hospital_Management_System\\Controllers\\DepartmentController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAowJgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowJgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-21T07:15:58.283Z",
               "EditorCaption": ""
@@ -141,8 +144,7 @@
               "RelativeToolTip": "Hospital_Management_System\\Models\\PatientModel.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAIwCcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T07:47:00.892Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T07:47:00.892Z"
             },
             {
               "$type": "Document",
@@ -154,12 +156,11 @@
               "RelativeToolTip": "Hospital_Management_System\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAC8BAAAAAAAAAAAjwEwBAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-22T03:39:49.685Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-22T03:39:49.685Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Hospital_Management_System\\Controllers\\UserController.cs",
@@ -167,12 +168,7 @@
               "RelativeToolTip": "Hospital_Management_System\\Controllers\\UserController.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAgwGIAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T03:13:29.287Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "WhenOpened": "2025-07-22T03:13:29.287Z"
             },
             {
               "$type": "Document",
@@ -184,8 +180,7 @@
               "RelativeToolTip": "Hospital_Management_System\\Models\\DepartmentModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T07:50:51.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T07:50:51.276Z"
             },
             {
               "$type": "Document",
@@ -197,8 +192,7 @@
               "RelativeToolTip": "Hospital_Management_System\\Views\\Patient\\PatientList.cshtml",
               "ViewState": "AgIAAD8AAAAAAAAAAAAAAEMAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-23T07:50:23.744Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T07:50:23.744Z"
             },
             {
               "$type": "Document",
@@ -222,8 +216,7 @@
               "RelativeToolTip": "Hospital_Management_System\\Views\\User\\UserList.cshtml",
               "ViewState": "AgIAAAEAAAAAAAAAAAAAAFwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T07:14:25.077Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T07:14:25.077Z"
             },
             {
               "$type": "Document",
@@ -259,8 +252,7 @@
               "RelativeToolTip": "Hospital_Management_System\\Views\\Doctor\\DoctorList.cshtml",
               "ViewState": "AgIAACsAAAAAAAAAAAAuwDYAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T07:57:18.053Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T07:57:18.053Z"
             },
             {
               "$type": "Document",
@@ -272,8 +264,7 @@
               "RelativeToolTip": "Hospital_Management_System\\Views\\Doctor\\DoctorAddEdit.cshtml",
               "ViewState": "AgIAAEMAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-23T07:29:16.314Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T07:29:16.314Z"
             },
             {
               "$type": "Document",
@@ -285,8 +276,7 @@
               "RelativeToolTip": "Hospital_Management_System\\Controllers\\DoctorController.cs",
               "ViewState": "AgIAAGMAAAAAAAAAAAAUwKQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T07:34:00.043Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T07:34:00.043Z"
             },
             {
               "$type": "Document",
@@ -298,8 +288,7 @@
               "RelativeToolTip": "Hospital_Management_System\\Models\\DoctorModel.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAA5wAkAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T07:32:18.202Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T07:32:18.202Z"
             },
             {
               "$type": "Document",
