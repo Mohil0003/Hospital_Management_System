@@ -18,5 +18,10 @@ namespace Hospital_Management_System.Models
 
         [Required(ErrorMessage = "Please select a User")]
         public int UserID { get; set; }
+
+        public string? DoctorName { get; set; }
+        public string? DepartmentName { get; set; }
+        public string? UserName { get; set; }
+        public DateTime? Created { get; set; }
     }
 }

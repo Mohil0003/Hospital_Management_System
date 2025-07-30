@@ -1,4 +1,4 @@
-﻿using Hospital_Management_System.Models;
+﻿    using Hospital_Management_System.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Data;
@@ -115,6 +115,11 @@ namespace Hospital_Management_System.Controllers
                             model.DepartmentID = Convert.ToInt32(dr["DepartmentID"]);
                             model.Modified = Convert.ToDateTime(dr["Modified"]);
                             model.UserID = Convert.ToInt32(dr["UserID"]);
+                            model.Created = Convert.ToDateTime(dr["Created"]);
+                            model.DoctorName = dr["DoctorName"].ToString();
+                            model.UserName = dr["UserName"].ToString();
+                            model.DepartmentName = dr["DepartmentName"].ToString();
+
                         }
                     }
                 }
@@ -141,12 +146,30 @@ namespace Hospital_Management_System.Controllers
 
             using SqlConnection conn = new(_configuration.GetConnectionString("ConnectionString"));
             conn.Open();
-            SqlCommand cmd = new("PR_DoctorDepartment_Add", conn);
+            SqlCommand cmd = new();
+            cmd.Connection = conn;
             cmd.CommandType = CommandType.StoredProcedure;
+
+            if (model.DoctorDepartmentID == 0 || model.DoctorDepartmentID == null)
+            {
+                cmd.CommandText = "PR_DoctorDepartment_Add";
+            }
+            else
+            {
+                cmd.CommandText = "[dbo].[PR_DoctorDepartment_SelectByPK]";
+                cmd.Parameters.AddWithValue("@DoctorDepartmentID", model.DoctorDepartmentID);
+            }
+            cmd.Parameters.AddWithValue("@DoctorDepartmentID", model.DoctorDepartmentID);
             cmd.Parameters.AddWithValue("@DoctorID", model.DoctorID);
+            cmd.Parameters.AddWithValue("@DoctorName", model.DoctorName);
             cmd.Parameters.AddWithValue("@DepartmentID", model.DepartmentID);
+            cmd.Parameters.AddWithValue("@DepartmentName", model.DepartmentName);
+            cmd.Parameters.AddWithValue("@Created", model.Created);
             cmd.Parameters.AddWithValue("@Modified", model.Modified);
             cmd.Parameters.AddWithValue("@UserID", model.UserID);
+            cmd.Parameters.AddWithValue("@UserName", model.UserName);
+
+
             cmd.ExecuteNonQuery();
 
             return RedirectToAction("DoctorDepartmentList");

@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\doctordepartment\\doctordepartmentaddedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\views\\doctordepartment\\doctordepartmentaddedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\controllers\\doctordepartmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\controllers\\doctordepartmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\models\\doctordepartmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\models\\doctordepartmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\doctordepartment\\doctordepartmentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\views\\doctordepartment\\doctordepartmentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\controllers\\doctordepartmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\controllers\\doctordepartmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\doctordepartment\\doctordepartmentaddedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\views\\doctordepartment\\doctordepartmentaddedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\models\\departmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\models\\departmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\appointment\\appointmentaddedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -27,28 +43,64 @@
       "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\models\\doctordepartmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\models\\doctordepartmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\models\\appointmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\models\\appointmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\appointment\\appointmentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\views\\appointment\\appointmentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\patient\\patientaddedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\views\\patient\\patientaddedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\models\\patientmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\models\\patientmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\patient\\patientlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\views\\patient\\patientlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\doctor\\doctorlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\views\\doctor\\doctorlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\models\\appointmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\models\\appointmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\models\\doctormodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\models\\doctormodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\user\\userlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\views\\user\\userlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\doctor\\doctoraddedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\views\\doctor\\doctoraddedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\models\\doctormodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\models\\doctormodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\wwwroot\\assets\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\wwwroot\\assets\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\appointment\\appointmentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\views\\appointment\\appointmentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|d:\\github\\hospital_management_by_.net\\hospital_management_system\\hospital_management_system\\views\\department\\departmentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FE8E73A-30AE-49EA-98BE-F7A86316B53F}|Hospital_Management_System\\Hospital_Management_System.csproj|solutionrelative:hospital_management_system\\views\\department\\departmentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,33 +110,61 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DoctorDepartmentList.cshtml",
-              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
-              "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
-              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
-              "RelativeToolTip": "Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAEAAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-29T15:22:13.925Z",
+              "Title": "DoctorDepartmentModel.cs",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\DoctorDepartmentModel.cs",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Models\\DoctorDepartmentModel.cs",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\DoctorDepartmentModel.cs",
+              "RelativeToolTip": "Hospital_Management_System\\Models\\DoctorDepartmentModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T07:57:13.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DoctorDepartmentController.cs",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\DoctorDepartmentController.cs",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Controllers\\DoctorDepartmentController.cs",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\DoctorDepartmentController.cs*",
+              "RelativeToolTip": "Hospital_Management_System\\Controllers\\DoctorDepartmentController.cs*",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAAwKoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T07:08:56.889Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DoctorDepartmentController.cs",
-              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\DoctorDepartmentController.cs",
-              "RelativeDocumentMoniker": "Hospital_Management_System\\Controllers\\DoctorDepartmentController.cs",
-              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\DoctorDepartmentController.cs",
-              "RelativeToolTip": "Hospital_Management_System\\Controllers\\DoctorDepartmentController.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAswH8AAAA6AAAAAAAAAA==",
+              "Title": "DoctorDepartmentList.cshtml",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
+              "RelativeToolTip": "Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentList.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-16T08:02:51.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AppointmentModel.cs",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\AppointmentModel.cs",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Models\\AppointmentModel.cs",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\AppointmentModel.cs",
+              "RelativeToolTip": "Hospital_Management_System\\Models\\AppointmentModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T14:18:42.987Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-30T07:12:50.554Z"
             },
             {
               "$type": "Bookmark",
@@ -92,137 +172,255 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "DoctorDepartmentAddEdit.cshtml",
               "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentAddEdit.cshtml",
               "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentAddEdit.cshtml",
               "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentAddEdit.cshtml",
               "RelativeToolTip": "Hospital_Management_System\\Views\\DoctorDepartment\\DoctorDepartmentAddEdit.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAAkAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-29T15:14:20.084Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AppointmentAddEdit.cshtml",
-              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Appointment\\AppointmentAddEdit.cshtml",
-              "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\Appointment\\AppointmentAddEdit.cshtml",
-              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Appointment\\AppointmentAddEdit.cshtml",
-              "RelativeToolTip": "Hospital_Management_System\\Views\\Appointment\\AppointmentAddEdit.cshtml",
-              "ViewState": "AgIAADsAAAAAAAAAAAAiwFQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-29T14:41:51.708Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AppointmentController.cs",
-              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\AppointmentController.cs",
-              "RelativeDocumentMoniker": "Hospital_Management_System\\Controllers\\AppointmentController.cs",
-              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\AppointmentController.cs",
-              "RelativeToolTip": "Hospital_Management_System\\Controllers\\AppointmentController.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAUwEMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T14:41:22.284Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-30T07:58:48.717Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Program.cs",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Program.cs",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Program.cs",
+              "RelativeToolTip": "Hospital_Management_System\\Program.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T07:38:59.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PatientController.cs",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\PatientController.cs",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Controllers\\PatientController.cs",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\PatientController.cs",
+              "RelativeToolTip": "Hospital_Management_System\\Controllers\\PatientController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwCUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T07:47:28.757Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DepartmentController.cs",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\DepartmentController.cs",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Controllers\\DepartmentController.cs",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\DepartmentController.cs",
+              "RelativeToolTip": "Hospital_Management_System\\Controllers\\DepartmentController.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAAAFUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T07:15:58.283Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Hospital_Management_System\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAADYBAAAAAAAAAAASwE0BAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-22T03:39:49.685Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "DoctorController.cs",
               "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\DoctorController.cs",
               "RelativeDocumentMoniker": "Hospital_Management_System\\Controllers\\DoctorController.cs",
               "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\DoctorController.cs",
               "RelativeToolTip": "Hospital_Management_System\\Controllers\\DoctorController.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAUwIcAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAAAAAAAAAAA0wD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T14:44:09.475Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T07:34:00.043Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DoctorDepartmentModel.cs",
-              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\DoctorDepartmentModel.cs",
-              "RelativeDocumentMoniker": "Hospital_Management_System\\Models\\DoctorDepartmentModel.cs",
-              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\DoctorDepartmentModel.cs",
-              "RelativeToolTip": "Hospital_Management_System\\Models\\DoctorDepartmentModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Hospital_Management_System\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwGIAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T15:13:33.825Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-22T03:13:29.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DepartmentModel.cs",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\DepartmentModel.cs",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Models\\DepartmentModel.cs",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\DepartmentModel.cs",
+              "RelativeToolTip": "Hospital_Management_System\\Models\\DepartmentModel.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAABQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T07:50:51.276Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "AppointmentAddEdit.cshtml",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Appointment\\AppointmentAddEdit.cshtml",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\Appointment\\AppointmentAddEdit.cshtml",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Appointment\\AppointmentAddEdit.cshtml",
+              "RelativeToolTip": "Hospital_Management_System\\Views\\Appointment\\AppointmentAddEdit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE8AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-30T07:15:22.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PatientModel.cs",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\PatientModel.cs",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Models\\PatientModel.cs",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\PatientModel.cs",
+              "RelativeToolTip": "Hospital_Management_System\\Models\\PatientModel.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAIwCcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T07:47:00.892Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PatientAddEdit.cshtml",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Patient\\PatientAddEdit.cshtml",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\Patient\\PatientAddEdit.cshtml",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Patient\\PatientAddEdit.cshtml",
+              "RelativeToolTip": "Hospital_Management_System\\Views\\Patient\\PatientAddEdit.cshtml",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAwGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-23T07:48:18.585Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PatientList.cshtml",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Patient\\PatientList.cshtml",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\Patient\\PatientList.cshtml",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Patient\\PatientList.cshtml",
+              "RelativeToolTip": "Hospital_Management_System\\Views\\Patient\\PatientList.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAEMAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-23T07:50:23.744Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\UserModel.cs",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Models\\UserModel.cs",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\UserModel.cs",
+              "RelativeToolTip": "Hospital_Management_System\\Models\\UserModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAQwCAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T03:16:41.016Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "UserList.cshtml",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\User\\UserList.cshtml",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\User\\UserList.cshtml",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\User\\UserList.cshtml",
+              "RelativeToolTip": "Hospital_Management_System\\Views\\User\\UserList.cshtml",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-16T07:14:25.077Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\appsettings.json",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\appsettings.json",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\appsettings.json",
+              "RelativeToolTip": "Hospital_Management_System\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-22T02:59:08.239Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "style.css",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\wwwroot\\assets\\css\\style.css",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\wwwroot\\assets\\css\\style.css",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\wwwroot\\assets\\css\\style.css",
+              "RelativeToolTip": "Hospital_Management_System\\wwwroot\\assets\\css\\style.css",
+              "ViewState": "AgIAACgEAAAAAAAAAAAAAGcEAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-21T07:08:35.348Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "DoctorList.cshtml",
               "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Doctor\\DoctorList.cshtml",
               "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\Doctor\\DoctorList.cshtml",
               "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Doctor\\DoctorList.cshtml",
               "RelativeToolTip": "Hospital_Management_System\\Views\\Doctor\\DoctorList.cshtml",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAuwDYAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-29T15:01:09.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T07:57:18.053Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AppointmentList.cshtml",
-              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Appointment\\AppointmentList.cshtml",
-              "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\Appointment\\AppointmentList.cshtml",
-              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Appointment\\AppointmentList.cshtml",
-              "RelativeToolTip": "Hospital_Management_System\\Views\\Appointment\\AppointmentList.cshtml",
-              "ViewState": "AgIAADYAAAAAAAAAAAAiwEoAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-29T14:39:24.536Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AppointmentModel.cs",
-              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\AppointmentModel.cs",
-              "RelativeDocumentMoniker": "Hospital_Management_System\\Models\\AppointmentModel.cs",
-              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\AppointmentModel.cs",
-              "RelativeToolTip": "Hospital_Management_System\\Models\\AppointmentModel.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAQwBgAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T14:19:24.25Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 19,
               "Title": "DoctorAddEdit.cshtml",
               "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Doctor\\DoctorAddEdit.cshtml",
               "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\Doctor\\DoctorAddEdit.cshtml",
               "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Doctor\\DoctorAddEdit.cshtml",
               "RelativeToolTip": "Hospital_Management_System\\Views\\Doctor\\DoctorAddEdit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-29T14:30:09.114Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T07:29:16.314Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 17,
               "Title": "DoctorModel.cs",
               "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\DoctorModel.cs",
               "RelativeDocumentMoniker": "Hospital_Management_System\\Models\\DoctorModel.cs",
               "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Models\\DoctorModel.cs",
               "RelativeToolTip": "Hospital_Management_System\\Models\\DoctorModel.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAwwA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAA5wAkAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T14:19:31.875Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T07:32:18.202Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AppointmentList.cshtml",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Appointment\\AppointmentList.cshtml",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\Appointment\\AppointmentList.cshtml",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Appointment\\AppointmentList.cshtml",
+              "RelativeToolTip": "Hospital_Management_System\\Views\\Appointment\\AppointmentList.cshtml",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAwFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-16T08:01:48.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "DepartmentList.cshtml",
+              "DocumentMoniker": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Department\\DepartmentList.cshtml",
+              "RelativeDocumentMoniker": "Hospital_Management_System\\Views\\Department\\DepartmentList.cshtml",
+              "ToolTip": "D:\\Github\\Hospital_Management_by_.NET\\Hospital_Management_System\\Hospital_Management_System\\Views\\Department\\DepartmentList.cshtml",
+              "RelativeToolTip": "Hospital_Management_System\\Views\\Department\\DepartmentList.cshtml",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAAwKgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-16T08:00:16.402Z"
             }
           ]
         }

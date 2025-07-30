@@ -17,5 +17,7 @@ namespace Hospital_Management_System.Models
         public bool IsActive { get; set; }
 
         public DateTime Modified { get; set; }
+        
+        public DateTime? Created { get; set; }
     }
 }
