@@ -440,6 +440,24 @@
 
     @RenderSection("Scripts", required: false)
 
+    @* <!-- Universal Modal Container -->
+    <div class="modal fade" id="universalModal" tabindex="-1" aria-labelledby="universalModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content shadow-lg border-0 rounded-4">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="universalModalLabel">Add / Edit</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4" id="universalModalContent">
+                    <!-- Dynamic Partial View will be loaded here -->
+                    <div class="text-center">
+                        <div class="spinner-border text-primary" role="status"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> *@
+
 </body>
 
 </html>
