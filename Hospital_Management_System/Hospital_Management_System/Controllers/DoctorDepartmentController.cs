@@ -153,21 +153,22 @@ namespace Hospital_Management_System.Controllers
             if (model.DoctorDepartmentID == 0 || model.DoctorDepartmentID == null)
             {
                 cmd.CommandText = "PR_DoctorDepartment_Add";
+                cmd.Parameters.AddWithValue("@DoctorName", model.DoctorName);
+                cmd.Parameters.AddWithValue("@DepartmentName", model.DepartmentName);
+                cmd.Parameters.AddWithValue("@Created", model.Created);
+                cmd.Parameters.AddWithValue("@UserName", model.UserName);
+
             }
             else
             {
-                cmd.CommandText = "[dbo].[PR_DoctorDepartment_SelectByPK]";
+                cmd.CommandText = "[dbo].[PR_DoctorDepartment_Edit]";
                 cmd.Parameters.AddWithValue("@DoctorDepartmentID", model.DoctorDepartmentID);
             }
-            cmd.Parameters.AddWithValue("@DoctorDepartmentID", model.DoctorDepartmentID);
+            //cmd.Parameters.AddWithValue("@DoctorDepartmentID", model.DoctorDepartmentID);
             cmd.Parameters.AddWithValue("@DoctorID", model.DoctorID);
-            cmd.Parameters.AddWithValue("@DoctorName", model.DoctorName);
             cmd.Parameters.AddWithValue("@DepartmentID", model.DepartmentID);
-            cmd.Parameters.AddWithValue("@DepartmentName", model.DepartmentName);
-            cmd.Parameters.AddWithValue("@Created", model.Created);
             cmd.Parameters.AddWithValue("@Modified", model.Modified);
             cmd.Parameters.AddWithValue("@UserID", model.UserID);
-            cmd.Parameters.AddWithValue("@UserName", model.UserName);
 
 
             cmd.ExecuteNonQuery();

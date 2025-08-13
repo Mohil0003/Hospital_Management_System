@@ -73,3 +73,11 @@ D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Manage
 D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System\obj\Debug\net8.0\Hospital.AAF429E2.Up2Date
 D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System\obj\Debug\net8.0\Hospital_Management_System.genruntimeconfig.cache
 D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System\obj\Debug\net8.0\ref\Hospital_Management_System.dll
+D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System\bin\Debug\net8.0\ClosedXML.dll
+D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System\bin\Debug\net8.0\ClosedXML.Parser.dll
+D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System\bin\Debug\net8.0\DocumentFormat.OpenXml.dll
+D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System\bin\Debug\net8.0\DocumentFormat.OpenXml.Framework.dll
+D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System\bin\Debug\net8.0\ExcelNumberFormat.dll
+D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System\bin\Debug\net8.0\RBush.dll
+D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System\bin\Debug\net8.0\SixLabors.Fonts.dll
+D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System\bin\Debug\net8.0\System.IO.Packaging.dll
