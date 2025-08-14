@@ -33,6 +33,9 @@
     <!-- Sweet Alert JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/4006c62b6e.js" crossorigin="anonymous"></script>
+
     <!-- =======================================================
     * Template Name: NiceAdmin
     * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -47,16 +50,17 @@
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top d-flex align-items-center">
+    <header id="header" class="header fixed-top d-flex align-items-center" style="background-color:deepskyblue">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <i class="fa-regular fa-hospital fs-1 me-3" style="color: #05166b;"></i>
+            <b  href="index.html" class="logo d-flex align-items-center">
          
-                <span class="d-none d-lg-block">HMS</span>
-            </a>
+                <span class="d-none d-lg-block fs-1">HMS</span>
+            </b>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
-
+            
         <div class="search-bar">
             <form class="search-form d-flex align-items-center" method="POST" action="#">
                 <input type="text" name="query" placeholder="Search" title="Enter search keyword">
@@ -280,15 +284,18 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link " asp-controller="Dashboard" asp-action="Index">
-                    <i class="bi bi-grid"></i>
+                <a class="nav-link collapsed" asp-controller="Dashboard" asp-action="Index">
+                    @* <i class="bi bi-grid"></i> *@
+                    <i class="fa-solid fa-house-chimney fs-5" style="color: #74C0FC;"></i>
                     <span>Dashboard</span>
                 </a>
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-menu-button-wide"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
+                    @* <i class="bi bi-menu-button-wide"></i> *@
+                    <i class="fa-solid fa-user fs-5" style="color: #74C0FC;"></i>
+                    <span>User</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
@@ -307,7 +314,9 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-journal-text"></i><span>Doctor</span><i class="bi bi-chevron-down ms-auto"></i>
+                    @* <i class="bi bi-journal-text"></i> *@
+                    <i class="fa-solid fa-stethoscope fs-5" style="color: #74C0FC;"></i>
+                    <span>Doctor</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
@@ -326,7 +335,9 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-layout-text-window-reverse"></i><span>Patient</span><i class="bi bi-chevron-down ms-auto"></i>
+                    @* <i class="bi bi-layout-text-window-reverse"></i> *@
+                    <i class="fa-solid fa-hospital-user fs-5" style="color: #74C0FC;"></i>
+                    <span>Patient</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
@@ -344,7 +355,9 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-bar-chart"></i><span>Department</span><i class="bi bi-chevron-down ms-auto"></i>
+                    @* <i class="bi bi-bar-chart"></i> *@
+                    <i class="fa-solid fa-hospital fs-5" style="color: #74C0FC;"></i>
+                    <span>Department</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
@@ -363,7 +376,9 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-gem"></i><span>Appointments</span><i class="bi bi-chevron-down ms-auto"></i>
+                    @* <i class="bi bi-gem"></i> *@
+                    <i class="fa-solid fa-file-lines fs-5" style="color: #74C0FC;"></i>
+                    <span>Appointments</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
@@ -382,7 +397,9 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#doctordept-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-hospital"></i><span>Doctor-Department</span><i class="bi bi-chevron-down ms-auto"></i>
+                    @* <i class="bi bi-hospital"></i> *@
+                    <i class="fa-solid fa-briefcase-medical fs-5" style="color: #74C0FC;"></i>
+                    <span>Doctor-Department</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="doctordept-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                     <li>
@@ -421,7 +438,7 @@
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-            Designed by <a href="https://bootstrapmade.com/">Mohil Parmar</a>
+            Designed by <b style="color: dodgerblue; font-size:medium; font-weight:500">Mohil Parmar</b>
         </div>
     </footer><!-- End Footer -->
 
