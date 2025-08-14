@@ -1,11 +1,659 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
-}
+    Layout = "~/Views/Shared/_SplashScreen.cshtml";
+} 
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to LifeCare Hospital</h1>
-    <p>
-        “A smart and intuitive dashboard for seamless hospital operations — enabling better patient care, efficient staff coordination, and real-time insights at a glance.”
+<!-- Enhanced Splash Overlay -->
+<div id="splash-overlay">
+    <div class="animated-background">
+        <div class="floating-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </div>
 
-    </p>
+    <div class="splash-container">
+        <div class="logo-container">
+            <div class="medical-cross">
+                <div class="cross-vertical"></div>
+                <div class="cross-horizontal"></div>
+            </div>
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring delay-1"></div>
+            <div class="pulse-ring delay-2"></div>
+        </div>
+
+        <div class="text-container">
+            <h1 class="main-title">Hospital Management System</h1>
+            <div class="loading-container">
+                <div class="loading-text">Loading</div>
+                <div class="loading-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="healthcare-icons">
+            <div class="icon heartbeat-icon">❤️</div>
+            <div class="icon stethoscope-icon">🩺</div>
+            <div class="icon hospital-icon">🏥</div>
+            <div class="icon medicine-icon">💊</div>
+        </div>
+    </div>
 </div>
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden;
+    }
+
+    /* Enhanced Splash Overlay */
+    #splash-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #4FC3F7 0%, #29B6F6 25%, #03A9F4 50%, #0288D1 75%, #0277BD 100%);
+        background-size: 300% 300%;
+        animation: gradientShift 8s ease infinite;
+        z-index: 99999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Animated background gradient */
+    @@keyframes gradientShift {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* Floating particles */
+    .animated-background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .floating-particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        animation: float 15s infinite linear;
+    }
+
+        .particle:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 12s;
+        }
+
+        .particle:nth-child(2) {
+            left: 30%;
+            animation-delay: 2s;
+            animation-duration: 18s;
+        }
+
+        .particle:nth-child(3) {
+            left: 50%;
+            animation-delay: 4s;
+            animation-duration: 15s;
+        }
+
+        .particle:nth-child(4) {
+            left: 70%;
+            animation-delay: 1s;
+            animation-duration: 20s;
+        }
+
+        .particle:nth-child(5) {
+            left: 20%;
+            animation-delay: 3s;
+            animation-duration: 14s;
+        }
+
+        .particle:nth-child(6) {
+            left: 80%;
+            animation-delay: 5s;
+            animation-duration: 16s;
+        }
+
+    @@keyframes float {
+        0% {
+            transform: translateY(100vh) rotate(0deg);
+            opacity: 0;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        90% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(-100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    /* Main splash container */
+    .splash-container {
+        position: relative;
+        text-align: center;
+        z-index: 10;
+        animation: slideInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 40px 20px;
+        box-sizing: border-box;
+    }
+
+    @@keyframes slideInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Enhanced Medical Cross Logo */
+    .logo-container {
+        position: relative;
+        margin-bottom: 40px;
+        flex-shrink: 0;
+    }
+
+    .medical-cross {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+        z-index: 5;
+        animation: logoGlow 3s ease-in-out infinite;
+    }
+
+    .cross-vertical, .cross-horizontal {
+        position: absolute;
+        background: linear-gradient(135deg, #ffffff, #e3f2fd);
+        border-radius: 4px;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+
+    .cross-vertical {
+        width: 16px;
+        height: 80px;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        animation: crossVertical 2s ease-in-out infinite;
+    }
+
+    .cross-horizontal {
+        width: 80px;
+        height: 16px;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        animation: crossHorizontal 2s ease-in-out infinite;
+    }
+
+    @@keyframes crossVertical {
+        0%, 100% {
+            height: 80px;
+        }
+
+        50% {
+            height: 88px;
+        }
+    }
+
+    @@keyframes crossHorizontal {
+        0%, 100% {
+            width: 80px;
+        }
+
+        50% {
+            width: 88px;
+        }
+    }
+
+    @@keyframes logoGlow {
+        0%, 100% {
+            transform: scale(1);
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+        }
+
+        50% {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.9));
+        }
+    }
+
+    /* Pulse rings around logo */
+    .pulse-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120px;
+        height: 120px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation: pulse 2s ease-out infinite;
+    }
+
+        .pulse-ring.delay-1 {
+            animation-delay: 0.5s;
+            width: 140px;
+            height: 140px;
+        }
+
+        .pulse-ring.delay-2 {
+            animation-delay: 1s;
+            width: 160px;
+            height: 160px;
+        }
+
+    @@keyframes pulse {
+        0% {
+            transform: translate(-50%, -50%) scale(0.8);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(-50%, -50%) scale(1.2);
+            opacity: 0;
+        }
+    }
+
+    /* Text container */
+    .text-container {
+        margin-bottom: 60px;
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        background: linear-gradient(45deg, #fff, #e8f4fd);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: titleShimmer 3s ease-in-out infinite;
+        text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+    }
+
+    @@keyframes titleShimmer {
+        0%, 100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.8;
+        }
+    }
+
+    /* Loading section */
+    .loading-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 25px;
+        z-index: 20;
+        position: relative;
+    }
+
+    .loading-text {
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .loading-dots {
+        display: flex;
+        gap: 4px;
+    }
+
+        .loading-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: white;
+            animation: dotPulse 1.4s ease-in-out infinite both;
+        }
+
+            .loading-dots span:nth-child(1) {
+                animation-delay: -0.32s;
+            }
+
+            .loading-dots span:nth-child(2) {
+                animation-delay: -0.16s;
+            }
+
+            .loading-dots span:nth-child(3) {
+                animation-delay: 0s;
+            }
+
+    @@keyframes dotPulse {
+        0%, 80%, 100% {
+            transform: scale(0.8);
+            opacity: 0.5;
+        }
+
+        40% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Progress bar */
+    .progress-bar {
+        width: 300px;
+        height: 5px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        z-index: 20;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #ffffff, #e1f5fe, #81d4fa);
+        border-radius: 3px;
+        animation: progressLoad 3s ease-in-out;
+        width: 0%;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+
+    @@keyframes progressLoad {
+        0% {
+            width: 0%;
+        }
+
+        100% {
+            width: 100%;
+        }
+    }
+
+    /* Healthcare icons */
+    .healthcare-icons {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        width: 100%;
+        max-width: 400px;
+        margin-top: 40px;
+        flex-shrink: 0;
+    }
+
+    .icon {
+        font-size: 2.5rem;
+        opacity: 0.9;
+        animation: iconFloat 4s ease-in-out infinite;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 50%;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        transition: all 0.3s ease;
+    }
+
+        .icon:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .icon:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .icon:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .icon:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        .icon:nth-child(4) {
+            animation-delay: 3s;
+        }
+
+    @@keyframes iconFloat {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    /* Fade out animation */
+    .fade-out {
+        opacity: 0 !important;
+        transform: scale(0.9) !important;
+    }
+
+    /* Responsive design */
+    @@media (max-width: 768px) {
+        .main-title {
+            font-size: 1.8rem;
+        }
+
+        .splash-container {
+            padding: 30px 15px;
+        }
+
+        .text-container {
+            margin-bottom: 40px;
+        }
+
+        .progress-bar {
+            width: 250px;
+        }
+
+        .healthcare-icons {
+            gap: 25px;
+            max-width: 300px;
+            margin-top: 30px;
+        }
+
+        .icon {
+            font-size: 1.8rem;
+            width: 55px;
+            height: 55px;
+            padding: 10px;
+        }
+
+        .loading-text {
+            font-size: 1.1rem;
+        }
+    }
+
+    @@media (max-width: 480px) {
+        .main-title {
+            font-size: 1.5rem;
+        }
+
+        .splash-container {
+            padding: 20px 10px;
+        }
+
+        .text-container {
+            margin-bottom: 30px;
+        }
+
+        .healthcare-icons {
+            gap: 20px;
+            max-width: 280px;
+            margin-top: 25px;
+        }
+
+        .icon {
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            padding: 8px;
+        }
+
+        .loading-text {
+            font-size: 1rem;
+        }
+
+        .progress-bar {
+            width: 220px;
+        }
+    }
+
+    @@media (max-height: 600px) {
+        .splash-container {
+            padding: 15px;
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        .text-container {
+            margin-bottom: 20px;
+        }
+
+        .healthcare-icons {
+            margin-top: 20px;
+        }
+
+        .medical-cross {
+            width: 60px;
+            height: 60px;
+        }
+
+        .cross-vertical {
+            width: 12px;
+            height: 60px;
+        }
+
+        .cross-horizontal {
+            width: 60px;
+            height: 12px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Enhanced loading sequence
+        const splashOverlay = document.getElementById("splash-overlay");
+        const mainContent = document.getElementById("main-content");
+
+        // Simulate loading progress
+        let progress = 0;
+        const progressFill = document.querySelector('.progress-fill');
+
+        const loadingInterval = setInterval(() => {
+        setTimeout(()=>{
+             console.log("---------------------------------------")
+            window.location.href = '/Dashboard/Index'
+        },2000)
+            progress += Math.random() * 15;
+            if (progress > 100) {
+                progress = 100;
+                clearInterval(loadingInterval);
+
+                // Start fade out after loading completes
+                setTimeout(() => {
+                    splashOverlay.classList.add('fade-out');
+
+                    setTimeout(() => {
+                        splashOverlay.style.display = "none";
+                        mainContent.style.display = "block";
+                        document.body.style.overflow = "auto";
+
+                        // Animate main content in
+                        mainContent.style.opacity = "0";
+                        mainContent.style.transform = "translateY(20px)";
+                        mainContent.style.transition = "all 0.6s ease";
+
+                        setTimeout(() => {
+                            mainContent.style.opacity = "1";
+                            mainContent.style.transform = "translateY(0)";
+                        }, 50);
+
+                    }, 800);
+                }, 500);
+            }
+        }, 100);
+    });
+
+   
+
+</script>
+
+<script>
+     $(document).ready(function (){
+       
+    })
+</script>
