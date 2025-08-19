@@ -1,7 +1,4 @@
-﻿@{
-    Layout = "~/Views/Shared/_SplashScreen.cshtml";
-} 
-
+﻿
 <!-- Enhanced Splash Overlay -->
 <div id="splash-overlay">
     <div class="animated-background">
@@ -616,7 +613,7 @@
         const loadingInterval = setInterval(() => {
         setTimeout(()=>{
              console.log("---------------------------------------")
-            window.location.href = '/Dashboard/Index'
+            window.location.href = '/User/Login'
         },2000)
             progress += Math.random() * 15;
             if (progress > 100) {
@@ -652,8 +649,3 @@
 
 </script>
 
-<script>
-     $(document).ready(function (){
-       
-    })
-</script>
