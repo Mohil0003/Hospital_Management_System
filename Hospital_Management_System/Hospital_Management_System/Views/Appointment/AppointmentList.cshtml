@@ -8,9 +8,17 @@
     <div class="card shadow-sm border-0">
         <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
             <h4 class="mb-0">Appointment List</h4>
+            <div class="ms-auto">
             <a asp-controller="Appointment" asp-action="Index" class="btn btn-light fw-bold text-primary">
                 <i class="bi bi-plus-circle"></i> Add Appointment
             </a>
+            <a class="btn btn-success ms-2"
+               asp-controller="Appointment"
+               asp-action="ExportToExcel">
+                <i class="bi bi-download me-2"></i>
+                Export To Excel
+            </a>
+            </div>
         </div>
 
         <div class="card-body p-0">

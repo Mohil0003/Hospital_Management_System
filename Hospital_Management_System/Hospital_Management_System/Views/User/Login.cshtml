@@ -301,7 +301,7 @@
             </div>
         }
 
-        <form method="post" asp-action="Login" asp-controller="Account" id="loginForm">
+        <form method="post" asp-action="Login" asp-controller="User" id="loginForm">
             <!-- Email Input with Icon -->
             <div class="input-group">
                 <input type="email"
@@ -335,9 +335,6 @@
                         Remember me
                     </label>
                 </div>
-                <a href="@Url.Action("ForgotPassword", "Account")" class="forgot-link">
-                    Forgot password?
-                </a>
             </div>
 
             <!-- Login Button -->
@@ -348,7 +345,7 @@
         </form>
 
         <div class="login-footer">
-            <small>Don't have an account? <a href="@Url.Action("Register", "Account")">Sign up</a></small>
+            <small>Don't have an account? <a href="@Url.Action("SignUp", "User")">Sign up</a></small>
         </div>
     </div>
 </div>

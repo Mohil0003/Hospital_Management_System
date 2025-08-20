@@ -11,6 +11,10 @@ namespace Hospital_Management_System.Controllers
     public class UserController : Controller
     {
         private IConfiguration _configuration;
+        public UserController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
 
         public IActionResult UserLogin(UserLoginModel userLoginModel)
         {
@@ -70,11 +74,13 @@ namespace Hospital_Management_System.Controllers
             return RedirectToAction("Login", "User");
         }
 
-
-        public UserController(IConfiguration configuration)
+        public IActionResult SignUp()
         {
-            _configuration = configuration;
+            return View();
         }
+
+
+       
         public IActionResult Index()
         {
             return View("UserAddEdit", new UserModel());

@@ -1,4 +1,5 @@
-﻿using Hospital_Management_System.Models;
+﻿using ClosedXML.Excel;
+using Hospital_Management_System.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Data;
@@ -13,6 +14,52 @@ namespace Hospital_Management_System.Controllers
         public DoctorController(IConfiguration configuration)
         {
             _configuration = configuration;
+        }
+
+
+
+        public IActionResult ExportToExcel()
+        {
+            DataTable dt = RetrieveData("PR_Doctor_SelectAll");
+
+            using (var workbook = new XLWorkbook())
+            {
+                // Add the DataTable to a worksheet
+                workbook.Worksheets.Add(dt, "Doctors");
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+
+                    return File(
+                        content,
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "Doctors.xlsx"
+                    );
+                }
+            }
+        }
+
+
+        public DataTable RetrieveData(String SP)
+        {
+            SqlConnection conn = new SqlConnection(this._configuration.GetConnectionString("ConnectionString"));
+            conn.Open();
+
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = SP;
+            //if (PKID != 0)
+            //{
+            //    cmd.Parameters.AddWithValue("@" + PKName, PKID);
+            //}
+            SqlDataReader reader = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            conn.Close();
+
+            return dt;
         }
 
         // Dropdown: Get list of active users

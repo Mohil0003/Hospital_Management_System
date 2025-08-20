@@ -1,4 +1,4 @@
-﻿@model DataTable
+﻿ @model DataTable
 @using System.Data
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -7,9 +7,17 @@
     <div class="card shadow-sm border-0">
         <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
             <h4 class="mb-0">Doctor-Department Mappings</h4>
+            <div class="ms-auto">
             <a asp-controller="DoctorDepartment" asp-action="Index" class="btn btn-light fw-bold text-primary">
                 <i class="bi bi-plus-circle"></i> Add Mapping
             </a>
+            <a class="btn btn-success ms-2"
+               asp-controller="DoctorDepartment"
+               asp-action="ExportToExcel">
+                <i class="bi bi-download me-2"></i>
+                Export To Excel
+            </a>
+            </div>
         </div>
 
         <div class="card-body p-0">

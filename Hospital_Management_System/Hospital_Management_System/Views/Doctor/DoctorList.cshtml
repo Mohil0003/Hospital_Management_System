@@ -8,9 +8,18 @@
     <div class="card shadow-sm border-0">
         <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
             <h4 class="mb-0">Doctor List</h4>
+            
+            <div class="ms-auto">
             <a asp-controller="Doctor" asp-action="Index" class="btn btn-light fw-bold text-primary">
                 + Add Doctor
             </a>
+            <a class="btn btn-success ms-2"
+               asp-controller="Doctor"
+               asp-action="ExportToExcel">
+                <i class="bi bi-download me-2"></i>
+                Export To Excel
+            </a>
+            </div>
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
