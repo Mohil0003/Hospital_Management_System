@@ -1,83 +1,421 @@
 ﻿@{
+    ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout_Login.cshtml";
 }
 
-@model UserLoginModel
+@section Styles {
+    <style>
+        body {
+            background: #f1f5f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            color: #334155;
+        }
 
-<main>
-    <div class="container">
-        @if (TempData["ErrorMessage"] != null)
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 360px;
+            border-radius: 16px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+            padding: 30px 25px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .login-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, #0ea5e9, #3b82f6);
+                border-radius: 16px 16px 0 0;
+            }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .login-header h3 {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #1e293b;
+            font-size: 1.5rem;
+        }
+
+        .login-header p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Compact Input Group Styling */
+        .input-group {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 16px;
+            z-index: 2;
+            transition: color 0.2s ease;
+        }
+
+        .form-control {
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 12px 12px 12px 40px;
+            height: 48px;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            color: #374151;
+            width: 100%;
+        }
+
+            .form-control:focus {
+                border-color: #0ea5e9;
+                box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+                outline: none;
+            }
+
+                .form-control:focus + .input-icon {
+                    color: #0ea5e9;
+                }
+
+            .form-control::placeholder {
+                color: #9ca3af;
+                font-size: 14px;
+            }
+
+        /* Options Row */
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+        .remember-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-check-input {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+        }
+
+            .form-check-input:checked {
+                background-color: #0ea5e9;
+                border-color: #0ea5e9;
+            }
+
+        .form-check-label {
+            color: #64748b;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .forgot-link {
+            color: #0ea5e9;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+            .forgot-link:hover {
+                color: #0284c7;
+            }
+
+        /* Compact Login Button */
+        .btn-login {
+            width: 100%;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-weight: 600;
+            font-size: 15px;
+            background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+            border: none;
+            color: white;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+            .btn-login:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 6px 20px rgba(14, 165, 233, 0.3);
+            }
+
+            .btn-login:active {
+                transform: translateY(0);
+            }
+
+        /* Footer */
+        .login-footer {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+            .login-footer small {
+                color: #64748b;
+                font-size: 13px;
+            }
+
+            .login-footer a {
+                color: #0ea5e9;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+                .login-footer a:hover {
+                    text-decoration: underline;
+                }
+
+        /* Error Alert */
+        .alert-danger {
+            border-radius: 8px;
+            border: 1px solid #fca5a5;
+            background: #fef2f2;
+            color: #dc2626;
+            padding: 10px 12px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Loading State */
+        .btn-login.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+            .btn-login.loading::after {
+                content: '';
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                top: 50%;
+                left: 50%;
+                margin-left: -8px;
+                margin-top: -8px;
+                border: 2px solid transparent;
+                border-top: 2px solid #ffffff;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+
+        @@keyframes spin {
+            0%
+
+        {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+
+        }
+
+        /* Responsive */
+        @@media (max-width: 480px) {
+            .login-card
+
+        {
+            padding: 25px 20px;
+            margin: 10px;
+            max-width: 320px;
+        }
+
+        .login-header h3 {
+            font-size: 1.3rem;
+        }
+
+        .form-options {
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+        }
+
+        }
+    </style>
+}
+
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-header">
+            <div class="logo-icon">
+                <i class="fas fa-hospital"></i>
+            </div>
+            <h3>Welcome Back</h3>
+            <p>Sign in to continue</p>
+        </div>
+
+        <!-- Error message display -->
+        @if (TempData["Error"] != null)
         {
             <div class="alert alert-danger" role="alert">
-                @TempData["ErrorMessage"]
+                <i class="fas fa-exclamation-triangle"></i>
+                @TempData["Error"]
             </div>
         }
-        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-                        <div class="d-flex justify-content-center py-4">
-                            <a class="logo d-flex align-items-center w-auto">
-                                <img src="~/image/Logo.png" alt="">
-                                <span class="d-none d-lg-block">Address Book</span>
-                            </a>
-                        </div><!-- End Logo -->
-
-                        <div class="card mb-3">
-
-                            <div class="card-body">
-
-                                <div class="pt-4 pb-2">
-                                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                                    <p class="text-center small">Enter your username & password to login</p>
-                                </div>
-
-                                <form class="row g-3 needs-validation" asp-action="UserLogin" asp-controller="User">
-
-                                    <div class="col-12">
-                                        <label asp-for="Username" class="form-label">Username</label>
-                                        <div class="input-group has-validation">
-                                            <span class="input-group-text" id="inputGroupPrepend"></span>
-                                            <input type="text" asp-for="Username" class="form-control" id="yourUsername">
-                                            <span asp-validation-for="Username" class="text-danger"></span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label asp-for="Password" class="form-label">Password</label>
-                                        <input type="password" asp-for="Password" class="form-control" id="yourPassword">
-                                        <span asp-validation-for="Password" class="text-danger"></span>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                                            <label class="form-check-label" for="rememberMe">Remember me</label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100" type="submit">Login</button>
-                                    </div>
-                                    <div class="col-12">
-                                        <p class="small mb-0">Don't have account? <a asp-controller="User" asp-action="Register">Create an account</a></p>
-                                    </div>
-                                </form>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+        <form method="post" asp-action="Login" asp-controller="Account" id="loginForm">
+            <!-- Email Input with Icon -->
+            <div class="input-group">
+                <input type="email"
+                       class="form-control"
+                       id="email"
+                       name="Email"
+                       placeholder="Enter your email"
+                       required />
+                <i class="fas fa-envelope input-icon"></i>
             </div>
 
-        </section>
+            <!-- Password Input with Icon -->
+            <div class="input-group">
+                <input type="password"
+                       class="form-control"
+                       id="password"
+                       name="Password"
+                       placeholder="Enter your password"
+                       required />
+                <i class="fas fa-lock input-icon"></i>
+            </div>
 
+            <!-- Remember Me & Forgot Password -->
+            <div class="form-options">
+                <div class="remember-checkbox">
+                    <input class="form-check-input"
+                           type="checkbox"
+                           id="rememberMe"
+                           name="RememberMe" />
+                    <label class="form-check-label" for="rememberMe">
+                        Remember me
+                    </label>
+                </div>
+                <a href="@Url.Action("ForgotPassword", "Account")" class="forgot-link">
+                    Forgot password?
+                </a>
+            </div>
+
+            <!-- Login Button -->
+            <button type="submit" class="btn btn-login" id="loginBtn">
+                <i class="fas fa-sign-in-alt me-2"></i>
+                <span class="btn-text">Sign In</span>
+            </button>
+        </form>
+
+        <div class="login-footer">
+            <small>Don't have an account? <a href="@Url.Action("Register", "Account")">Sign up</a></small>
+        </div>
     </div>
-</main><!-- End #main -->
+</div>
+
 @section Scripts {
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        // Form submission with loading state
+        document.getElementById('loginForm').addEventListener('submit', function() {
+            const loginBtn = document.getElementById('loginBtn');
+            const btnText = loginBtn.querySelector('.btn-text');
+
+            loginBtn.classList.add('loading');
+            btnText.textContent = 'Signing in...';
+            loginBtn.disabled = true;
+        });
+
+        // Show error alert if login fails
+        @if (TempData["Error"] != null)
+        {
+                <text>
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Login Failed',
+                            text: '@TempData["Error"]',
+                            confirmButtonColor: '#0ea5e9'
+                        });
+                    }
+                </text>
+        }
+
+        // Form validation
+        function validateForm() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (!email || !password) {
+                return false;
+            }
+            return true;
+        }
+
+        // Add form validation on submit
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            if (!validateForm()) {
+                e.preventDefault();
+                const loginBtn = document.getElementById('loginBtn');
+                const btnText = loginBtn.querySelector('.btn-text');
+
+                loginBtn.classList.remove('loading');
+                btnText.textContent = 'Sign In';
+                loginBtn.disabled = false;
+            }
+        });
+
+        // Enhanced input focus effects
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('focused');
+            });
+        });
+    </script>
 }
