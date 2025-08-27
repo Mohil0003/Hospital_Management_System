@@ -15,7 +15,7 @@ namespace Hospital_Management_System.Controllers
         {
             _configuration = configuration;
         }
-
+        [HttpPost]
         public IActionResult UserLogin(UserLoginModel userLoginModel)
         {
             try
@@ -59,11 +59,62 @@ namespace Hospital_Management_System.Controllers
 
             return RedirectToAction("Login");
         }
+        
         public IActionResult Login()
         {
             return View();
         }
+        public IActionResult ValidateLogin(UserModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                // If the model is not valid (e.g., empty username/password),
+                // return the user to the login page to see the errors.
+                return View(model);
+            }
 
+            try
+            {
+                string connectionString = this._configuration.GetConnectionString("ConnectionString");
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    sqlConnection.Open();
+                    SqlCommand sqlCommand = sqlConnection.CreateCommand();
+                    sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                    sqlCommand.CommandText = "PR_User_ValidateLogin";
+                    sqlCommand.Parameters.AddWithValue("@Username", model.UserName);
+                    sqlCommand.Parameters.AddWithValue("@Password", model.Password); // Your SP should handle password comparison
+
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+                    if (sqlDataReader.HasRows)
+                    {
+                        // If the database returns a user, the login is successful
+                        while (sqlDataReader.Read())
+                        {
+                            // Store user details in the session
+                            HttpContext.Session.SetString("UserID", sqlDataReader["UserID"].ToString());
+                            HttpContext.Session.SetString("UserName", sqlDataReader["UserName"].ToString());
+                            HttpContext.Session.SetString("EmailAddress", sqlDataReader["Email"].ToString());
+                        }
+
+                        return RedirectToAction("Dashboard", "Dashboard"); // Redirect to your main dashboard
+                    }
+                    else
+                    {
+                        // If no user is found, show an error message
+                        TempData["ErrorMessage"] = "Invalid username or password.";
+                        return RedirectToAction("Login");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // Handle any database or other errors
+                TempData["ErrorMessage"] = "An error occurred during login: " + e.Message;
+                return RedirectToAction("Login");
+            }
+        }
 
 
 
@@ -79,8 +130,6 @@ namespace Hospital_Management_System.Controllers
             return View();
         }
 
-
-       
         public IActionResult Index()
         {
             return View("UserAddEdit", new UserModel());
@@ -166,6 +215,7 @@ namespace Hospital_Management_System.Controllers
         [HttpPost]
         public IActionResult SaveUser(UserModel model)
         {
+
             if (!ModelState.IsValid)
             {
                 return View("UserAddEdit", model);

@@ -495,3 +495,4 @@ wwwroot\assets\vendor\tinymce\themes\silver\theme.min.js
 wwwroot\assets\vendor\tinymce\tinymce.d.ts
 wwwroot\assets\vendor\tinymce\tinymce.js
 wwwroot\assets\vendor\tinymce\tinymce.min.js
+wwwroot\NewFolder\hospital management system logo named_ citycare.jpg
