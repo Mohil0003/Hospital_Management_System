@@ -138,7 +138,7 @@ namespace Hospital_Management_System.Controllers
             conn.Open();
 
             SqlCommand cmd;
-            if (model.PatientID == 0)
+            if (model.PatientID == null)
                 cmd = new SqlCommand("PR_Patient_Add", conn);
             else
             {

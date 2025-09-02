@@ -583,7 +583,7 @@
     </div>
 
     <div class="login-body">
-        @using (Html.BeginForm("ValidateLogin", "User", FormMethod.Post, new { novalidate = "novalidate" }))
+        @using (Html.BeginForm("ValidateLogin", "UserLogin", FormMethod.Post, new { novalidate = "novalidate" }))
         {
             <div class="form-group mb-3">
                 @Html.TextBoxFor(m => m.Username, new { @class = "form-control form-control-lg", placeholder = "Username" })
@@ -612,45 +612,11 @@
             <div class="text-center mt-4 form-text">
                 <h6>
                     Have not any Account?
-                    <a href="@Url.Action("SignUp", "User")">Sign up</a>
+                    <a href="@Url.Action("SignUp", "UserLogin")">Sign up</a>
                 </h6>
             </div>
         }
     </div>
-</div>
-
-
-<!-- Gemini AI Help Modal -->
-<div class="modal fade" id="aiHelpModal" tabindex="-1" aria-labelledby="aiHelpModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="aiHelpModalLabel">Account Recovery Assistant</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div id="aiHelpForm">
-            <p>Please enter your username below. Our AI assistant will provide you with the next steps.</p>
-            <div class="mb-3">
-                <label for="recoveryUsername" class="form-label">Username</label>
-                <input type="text" class="form-control" id="recoveryUsername" placeholder="e.g., j.doe">
-            </div>
-            <button type="button" class="btn btn-primary w-100" id="getAiHelpBtn">
-                ✨ Get AI Assistance
-            </button>
-        </div>
-        <div id="aiHelpResponse" class="d-none">
-            <!-- AI response will be injected here -->
-        </div>
-        <div id="loadingIndicator" class="text-center d-none">
-            <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-            <p class="mt-2">Consulting our AI assistant...</p>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 

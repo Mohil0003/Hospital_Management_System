@@ -361,7 +361,7 @@
             <p>Join the CityCare professional network.</p>
         </div>
         <div class="signup-body">
-            <form asp-action="SaveUser" asp-controller="User" method="post" novalidate>
+            <form asp-action="SignUp" asp-controller="UserLogin" method="post" novalidate>
                 <input type="hidden" asp-for="UserID" value="0" />
                 <input type="hidden" asp-for="Modified" value="@DateTime.Now" />
                 <div class="row">
@@ -405,7 +405,7 @@
                 </div>
 
                 <div class="text-center mt-4 form-text">
-                    <a asp-action="Login" asp-controller="User">Already have an account? Sign In</a>
+                    <a asp-action="Login" asp-controller="UserLogin">Already have an account? Sign In</a>
                 </div>
             </form>
         </div>
