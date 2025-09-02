@@ -136,8 +136,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <div class="container py-5">
-        <h2 class="mb-4 text-center fw-bold">Dashboard Statistics</h2>
+    <div class="container py-2">
         <div class="row g-4 justify-content-center">
 
             <!-- Users -->
@@ -240,56 +239,68 @@
 
 </div>
 
+
+
 <script>
-    // Line Chart - Patients Growth
-    const ctx1 = document.getElementById('patientsChart').getContext('2d');
-    new Chart(ctx1, {
-        type: 'line',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-            datasets: [{
-                label: 'Patients',
-                data: [50, 80, 120, 150, 200, 250],
-                borderColor: '#0d6efd',
-                backgroundColor: 'rgba(13, 110, 253, 0.2)',
-                fill: true,
-                tension: 0.3
-            }]
-        },
-        options: { responsive: true }
-    });
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch('/Dashboard/GetChartData')
+            .then(res => res.json())
+            .then(data => {
+                // Patients Growth Line Chart
+                new Chart(document.getElementById('patientsChart'), {
+                    type: 'line',
+                    data: {
+                        labels: data.patientsGrowth.map(x => x.Month),
+                        datasets: [{
+                            label: 'Patients',
+                            data: data.patientsGrowth.map(x => x.Count),
+                            borderColor: 'blue',
+                            fill: false
+                        }]
+                    }
+                    options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { display: true } }
+                     }
 
-    // Pie Chart - Appointments by Department
-    const ctx2 = document.getElementById('appointmentsChart').getContext('2d');
-    new Chart(ctx2, {
-        type: 'pie',
-        data: {
-            labels: ['Cardiology', 'Neurology', 'Orthopedics', 'Pediatrics', 'General'],
-            datasets: [{
-                data: [30, 15, 20, 25, 10],
-                backgroundColor: ['#0d6efd', '#198754', '#ffc107', '#dc3545', '#6f42c1']
-            }]
-        },
-        options: { responsive: true }
-    });
+                });
 
-    // Bar Chart - Revenue Analysis
-    const ctx3 = document.getElementById('revenueChart').getContext('2d');
-    new Chart(ctx3, {
-        type: 'bar',
-        data: {
-            labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-            datasets: [{
-                label: 'Revenue (₹ in lakhs)',
-                data: [120, 150, 180, 210],
-                backgroundColor: ['#0d6efd', '#198754', '#ffc107', '#dc3545']
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: { beginAtZero: true }
-            }
-        }
+                // Appointments by Department Pie Chart
+                new Chart(document.getElementById('appointmentsChart'), {
+                    type: 'pie',
+                    data: {
+                        labels: data.appointmentsByDept.map(x => x.Department),
+                        datasets: [{
+                            data: data.appointmentsByDept.map(x => x.Count),
+                            backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0']
+                        }]
+                    }
+                    options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { display: true } }
+                     }
+                });
+
+                // Revenue Analysis Bar Chart
+                new Chart(document.getElementById('revenueChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: data.revenueAnalysis.map(x => x.Quarter),
+                        datasets: [{
+                            label: 'Revenue',
+                            data: data.revenueAnalysis.map(x => x.Revenue),
+                            backgroundColor: 'orange'
+                        }]
+                    }
+                    options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { display: true } }
+                     }
+                });
+            });
     });
 </script>
+
