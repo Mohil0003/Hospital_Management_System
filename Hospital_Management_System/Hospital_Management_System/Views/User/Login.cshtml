@@ -420,6 +420,7 @@
     ViewData["Title"] = "CityCare Login";
     Layout = null;
 }
+@model Hospital_Management_System.Models.UserLoginModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -571,28 +572,35 @@
 
     </style>
 </head>
-<body>
 
+<body>
 <div class="login-container">
     <div class="login-header">
         <i class="fa-regular fa-hospital fa-beat-fade fs-1" style="color: #0d54af;"></i>
-        @* <img src="~/images/citycare-logo.jpg" alt="CityCare Logo"> *@
         <br />
         <h2 class="m-3">HMS Portal Login</h2>
         <p>Welcome to the CityCare professional portal.</p>
     </div>
 
     <div class="login-body">
-        @using (Html.BeginForm("UserLogin", "User", FormMethod.Post))
+        @using (Html.BeginForm("ValidateLogin", "User", FormMethod.Post, new { novalidate = "novalidate" }))
         {
-            <div class="form-group">
-                <input type="text" id="username" name="Username" class="form-control form-control-lg" placeholder="Username" required />
+            <div class="form-group mb-3">
+                @Html.TextBoxFor(m => m.Username, new { @class = "form-control form-control-lg", placeholder = "Username" })
                 <i class="bi bi-person form-icon"></i>
+                @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
             </div>
 
-            <div class="form-group">
-                <input type="password" id="password" name="Password" class="form-control form-control-lg" placeholder="Password" required />
+            <div class="form-group mb-3">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control form-control-lg", placeholder = "Email", type = "email" })
+                <i class="bi bi-envelope form-icon"></i>
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-lg", placeholder = "Password" })
                 <i class="bi bi-lock form-icon"></i>
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
             </div>
 
             <div class="d-grid gap-2 mt-4">
@@ -600,17 +608,17 @@
                     Sign In Securely
                 </button>
             </div>
-            
+
             <div class="text-center mt-4 form-text">
-                <!-- This link now opens the modal -->
                 <h6>
                     Have not any Account?
-                 <a href="@Url.Action("SignUp", "User")">Sign up</a>
-                 </h6>
+                    <a href="@Url.Action("SignUp", "User")">Sign up</a>
+                </h6>
             </div>
         }
     </div>
 </div>
+
 
 <!-- Gemini AI Help Modal -->
 <div class="modal fade" id="aiHelpModal" tabindex="-1" aria-labelledby="aiHelpModalLabel" aria-hidden="true">

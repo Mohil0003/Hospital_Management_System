@@ -66,55 +66,61 @@ namespace Hospital_Management_System.Controllers
         }
         public IActionResult ValidateLogin(UserModel model)
         {
-            if (!ModelState.IsValid)
+            //if (!ModelState.IsValid)
+            //{
+            //    // If the model is not valid (e.g., empty username/password),
+            //    // return the user to the login page to see the errors.
+            //    return View("Login");
+            //}
+            if (ModelState.IsValid)
             {
-                // If the model is not valid (e.g., empty username/password),
-                // return the user to the login page to see the errors.
-                return View(model);
-            }
 
-            try
-            {
-                string connectionString = this._configuration.GetConnectionString("ConnectionString");
-                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+
+                try
                 {
-                    sqlConnection.Open();
-                    SqlCommand sqlCommand = sqlConnection.CreateCommand();
-                    sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                    sqlCommand.CommandText = "PR_User_ValidateLogin";
-                    sqlCommand.Parameters.AddWithValue("@Username", model.UserName);
-                    sqlCommand.Parameters.AddWithValue("@Password", model.Password); // Your SP should handle password comparison
-
-                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
-                    if (sqlDataReader.HasRows)
+                    string connectionString = this._configuration.GetConnectionString("ConnectionString");
+                    using (SqlConnection sqlConnection = new SqlConnection(connectionString))
                     {
-                        // If the database returns a user, the login is successful
-                        while (sqlDataReader.Read())
+                        sqlConnection.Open();
+                        SqlCommand sqlCommand = sqlConnection.CreateCommand();
+                        sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                        sqlCommand.CommandText = "PR_User_ValidateLogin";
+                        sqlCommand.Parameters.AddWithValue("@Username", model.UserName);
+                        sqlCommand.Parameters.AddWithValue("@Password", model.Password); // Your SP should handle password comparison
+
+                        SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+                        if (sqlDataReader.HasRows)
                         {
-                            // Store user details in the session
-                            HttpContext.Session.SetString("UserID", sqlDataReader["UserID"].ToString());
-                            HttpContext.Session.SetString("UserName", sqlDataReader["UserName"].ToString());
-                            HttpContext.Session.SetString("EmailAddress", sqlDataReader["Email"].ToString());
-                        }
+                            // If the database returns a user, the login is successful
+                            while (sqlDataReader.Read())
+                            {
+                                // Store user details in the session
+                                HttpContext.Session.SetString("UserID", sqlDataReader["UserID"].ToString());
+                                HttpContext.Session.SetString("UserName", sqlDataReader["UserName"].ToString());
+                                HttpContext.Session.SetString("EmailAddress", sqlDataReader["Email"].ToString());
+                            }
 
-                        return RedirectToAction("Dashboard", "Dashboard"); // Redirect to your main dashboard
-                    }
-                    else
-                    {
-                        // If no user is found, show an error message
-                        TempData["ErrorMessage"] = "Invalid username or password.";
-                        return RedirectToAction("Login");
+                            return RedirectToAction("Index", "Dashboard"); // Redirect to your main dashboard
+                        }
+                        else
+                        {
+                            // If no user is found, show an error message
+                            TempData["ErrorMessage"] = "Invalid username or password.";
+                            return RedirectToAction("Login");
+                        }
                     }
                 }
+                catch (Exception e)
+                {
+                    // Handle any database or other errors
+                    TempData["ErrorMessage"] = "An error occurred during login: " + e.Message;
+                    return RedirectToAction("Login");
+                }
             }
-            catch (Exception e)
-            {
-                // Handle any database or other errors
-                TempData["ErrorMessage"] = "An error occurred during login: " + e.Message;
-                return RedirectToAction("Login");
-            }
+            return View("Login", model);
         }
+     
 
 
 
