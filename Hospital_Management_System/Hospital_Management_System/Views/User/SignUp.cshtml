@@ -361,7 +361,7 @@
             <p>Join the CityCare professional network.</p>
         </div>
         <div class="signup-body">
-            <form asp-action="SignUp" asp-controller="UserLogin" method="post" novalidate>
+            <form asp-action="SignUp" asp-controller="UserLogin" method="post">
                 <input type="hidden" asp-for="UserID" value="0" />
                 <input type="hidden" asp-for="Modified" value="@DateTime.Now" />
                 <div class="row">
@@ -413,6 +413,6 @@
 
    
 </body>
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

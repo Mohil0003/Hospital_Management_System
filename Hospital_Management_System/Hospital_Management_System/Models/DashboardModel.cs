@@ -11,6 +11,19 @@
         public int TotalReports { get; set; }
         public int ActiveBeds { get; set; }
         public int StaffMembers { get; set; }
+
+        // Dynamic, frequently-changing KPIs
+        public int TodaysAppointments { get; set; }
+        public int NewPatientsThisMonth { get; set; }
+        public int PendingAppointments { get; set; }
+        public int CompletedAppointments { get; set; }
+        public int CancelledAppointments { get; set; }
+        public int CompletionRatePercent { get; set; }
+
+        // Financial insights
+        public decimal AvgRevenuePerPatient { get; set; }
+        public decimal AvgRevenuePerAppointment { get; set; }
+        public int PaymentClearanceRatePercent { get; set; }
     }
 
 }

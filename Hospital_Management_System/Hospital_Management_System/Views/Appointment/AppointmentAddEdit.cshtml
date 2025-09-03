@@ -6,70 +6,68 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-<div class="container mt-5">
-    <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white fw-bold">
-            @ViewData["Title"]
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white d-flex align-items-center" style="border-top-left-radius:16px;border-top-right-radius:16px;">
+            <h5 class="mb-0 fw-semibold">@ViewData["Title"]</h5>
         </div>
         <div class="card-body">
             <form asp-action="SaveAppointment" asp-controller="Appointment" method="post" novalidate>
                 <input type="hidden" asp-for="AppointmentID" />
 
-                <div class="mb-3">
-                    <label asp-for="DoctorID" class="form-label fw-bold">Doctor</label>
-                    <select asp-for="DoctorID" asp-items="ViewBag.DoctorList" class="form-select">
-                        <option value="">-- Select Doctor --</option>
-                    </select>
-                    <span asp-validation-for="DoctorID" class="text-danger"></span>
-                </div>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="DoctorID" class="form-label fw-bold">Doctor</label>
+                        <select asp-for="DoctorID" asp-items="ViewBag.DoctorList" class="form-select">
+                            <option value="">-- Select Doctor --</option>
+                        </select>
+                        <span asp-validation-for="DoctorID" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="PatientID" class="form-label fw-bold">Patient</label>
+                        <select asp-for="PatientID" asp-items="ViewBag.PatientList" class="form-select">
+                            <option value="">-- Select Patient --</option>
+                        </select>
+                        <span asp-validation-for="PatientID" class="text-danger"></span>
+                    </div>
 
-                <div class="mb-3">
-                    <label asp-for="PatientID" class="form-label fw-bold">Patient</label>
-                    <select asp-for="PatientID" asp-items="ViewBag.PatientList" class="form-select">
-                        <option value="">-- Select Patient --</option>
-                    </select>
-                    <span asp-validation-for="PatientID" class="text-danger"></span>
-                </div>
+                    <div class="col-md-6">
+                        <label asp-for="AppointmentDate" class="form-label fw-bold">Appointment Date</label>
+                        <input asp-for="AppointmentDate" type="datetime-local" class="form-control" />
+                        <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="AppointmentStatus" class="form-label fw-bold">Status</label>
+                        <input asp-for="AppointmentStatus" class="form-control" placeholder="e.g., Scheduled, Completed" />
+                        <span asp-validation-for="AppointmentStatus" class="text-danger"></span>
+                    </div>
 
-                <div class="mb-3">
-                    <label asp-for="AppointmentDate" class="form-label fw-bold">Appointment Date</label>
-                    <input asp-for="AppointmentDate" type="datetime-local" class="form-control" />
-                    <span asp-validation-for="AppointmentDate" class="text-danger"></span>
-                </div>
+                    <div class="col-12">
+                        <label asp-for="Description" class="form-label fw-bold">Description</label>
+                        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="SpecialRemarks" class="form-label fw-bold">Special Remarks</label>
+                        <input asp-for="SpecialRemarks" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="TotalConsultedAmount" class="form-label fw-bold">Total Amount</label>
+                        <input asp-for="TotalConsultedAmount" class="form-control" />
+                        <span asp-validation-for="TotalConsultedAmount" class="text-danger"></span>
+                    </div>
 
-                <div class="mb-3">
-                    <label asp-for="AppointmentStatus" class="form-label fw-bold">Status</label>
-                    <input asp-for="AppointmentStatus" class="form-control" placeholder="e.g., Scheduled, Completed" />
-                    <span asp-validation-for="AppointmentStatus" class="text-danger"></span>
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="Description" class="form-label fw-bold">Description</label>
-                    <textarea asp-for="Description" class="form-control" rows="3"></textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="SpecialRemarks" class="form-label fw-bold">Special Remarks</label>
-                    <input asp-for="SpecialRemarks" class="form-control" />
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="TotalConsultedAmount" class="form-label fw-bold">Total Amount</label>
-                    <input asp-for="TotalConsultedAmount" class="form-control" />
-                    <span asp-validation-for="TotalConsultedAmount" class="text-danger"></span>
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="UserID" class="form-label fw-bold">Created By (User)</label>
-                    <select asp-for="UserID" asp-items="ViewBag.UserList" class="form-select">
-                        <option value="">-- Select User --</option>
-                    </select>
-                    <span asp-validation-for="UserID" class="text-danger"></span>
+                    <div class="col-md-6">
+                        <label asp-for="UserID" class="form-label fw-bold">Created By (User)</label>
+                        <select asp-for="UserID" asp-items="ViewBag.UserList" class="form-select">
+                            <option value="">-- Select User --</option>
+                        </select>
+                        <span asp-validation-for="UserID" class="text-danger"></span>
+                    </div>
                 </div>
 
                 <input type="hidden" asp-for="Modified" value="@DateTime.Now" />
 
-                <div class="d-flex gap-2">
+                <div class="d-flex gap-2 mt-3">
                     <button type="submit" class="btn btn-success">
                         @(Model.AppointmentID == null ? "Add Appointment" : "Update Appointment")
                     </button>

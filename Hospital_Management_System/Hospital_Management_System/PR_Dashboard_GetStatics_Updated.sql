@@ -1,6 +1,7 @@
+-- Dashboard Statistics using only: [User], Department, Doctor, DoctorDepartment, Patient, Appointment
+-- Run this in your SQL Server database
 
-
-ALTER PROCEDURE PR_Dashboard_GetStatics
+CREATE OR ALTER PROCEDURE PR_Dashboard_GetStatics
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -19,7 +20,7 @@ BEGIN
         (SELECT COUNT(*) FROM Appointment WHERE CAST(AppointmentDate AS DATE) = CAST(GETDATE() AS DATE)) AS TodaysAppointments,
         (SELECT COUNT(*) FROM Patient WHERE YEAR(Created) = YEAR(GETDATE()) AND MONTH(Created) = MONTH(GETDATE())) AS NewPatientsThisMonth,
         (SELECT COUNT(*) FROM Appointment WHERE AppointmentStatus = 'Pending') AS PendingAppointments,
-         (SELECT COUNT(*) FROM Appointment WHERE AppointmentStatus = 'Completed') AS CompletedAppointments,
+        (SELECT COUNT(*) FROM Appointment WHERE AppointmentStatus = 'Completed') AS CompletedAppointments,
         (SELECT COUNT(*) FROM Appointment WHERE AppointmentStatus = 'Cancelled') AS CancelledAppointments,
         (
             SELECT CASE WHEN COUNT(*) = 0 THEN 0 

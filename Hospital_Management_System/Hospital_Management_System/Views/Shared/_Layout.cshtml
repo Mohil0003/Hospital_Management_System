@@ -30,6 +30,7 @@
 
     <!-- Template Main CSS File -->
     <link href="~/assets/css/style.css" rel="stylesheet">
+    <link href="~/assets/css/custom.css" rel="stylesheet">
 
     <!-- Sweet Alert JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -457,6 +458,37 @@
                
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize Simple-DataTables and store instances for custom search bindings
+            window.__dtMap = new Map();
+            let autoIdCounter = 0;
+            document.querySelectorAll('table.table').forEach(function (tbl) {
+                try {
+                    if (!tbl.id) {
+                        tbl.id = 'dt-' + (++autoIdCounter);
+                    }
+                    const dt = new simpleDatatables.DataTable(tbl, {
+                        searchable: false,
+                        fixedHeight: true,
+                        perPage: 10
+                    });
+                    window.__dtMap.set('#' + tbl.id, dt);
+                } catch { }
+            });
+
+            // Bind any search inputs to target tables
+            document.querySelectorAll('input[data-table-search]').forEach(function (input) {
+                const target = input.getAttribute('data-table-search');
+                const dt = window.__dtMap.get(target);
+                if (dt) {
+                    input.addEventListener('input', function () {
+                        dt.search(input.value);
+                    });
+                }
+            });
+        });
+    </script>
 
     @RenderSection("Scripts", required: false)
 

@@ -3,26 +3,32 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-<div class="container mt-5">
+<div class="container mt-4">
     <div class="card shadow-sm border-0">
-        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-            <h4 class="mb-0">Doctor-Department Mappings</h4>
-            <div class="ms-auto">
-            <a asp-controller="DoctorDepartment" asp-action="Index" class="btn btn-light fw-bold text-primary">
-                <i class="bi bi-plus-circle"></i> Add Mapping
-            </a>
-            <a class="btn btn-success ms-2"
-               asp-controller="DoctorDepartment"
-               asp-action="ExportToExcel">
-                <i class="bi bi-download me-2"></i>
-                Export To Excel
-            </a>
+        <div class="card-header bg-white d-flex flex-wrap gap-3 align-items-center" style="border-top-left-radius:16px;border-top-right-radius:16px;">
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-diagram-3 text-primary fs-5"></i>
+                <h5 class="mb-0 fw-semibold">Doctor-Department</h5>
+            </div>
+            <div class="ms-auto d-flex flex-wrap gap-2">
+                <div class="input-group input-group-sm" style="width:260px;">
+                    <span class="input-group-text bg-light"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Search mappings..." data-table-search="#docDeptTable" />
+                </div>
+                <a asp-controller="DoctorDepartment" asp-action="Index" class="btn btn-primary btn-sm">
+                    <i class="bi bi-plus-circle me-1"></i> Add Mapping
+                </a>
+                <a class="btn btn-outline-success btn-sm"
+                   asp-controller="DoctorDepartment"
+                   asp-action="ExportToExcel">
+                    <i class="bi bi-download me-1"></i> Export
+                </a>
             </div>
         </div>
 
         <div class="card-body p-0">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover text-center align-middle mb-0">
+                <table id="docDeptTable" class="table table-striped table-hover text-center align-middle mb-0">
                     <thead class="table-dark">
                         <tr>
                             <th>Doctor Name</th>

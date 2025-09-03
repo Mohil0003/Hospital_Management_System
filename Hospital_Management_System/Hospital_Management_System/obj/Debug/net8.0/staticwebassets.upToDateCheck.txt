@@ -1,3 +1,4 @@
+wwwroot\assets\css\custom.css
 wwwroot\assets\css\style.css
 wwwroot\assets\img\apple-touch-icon.png
 wwwroot\assets\img\card.jpg

@@ -24,16 +24,16 @@ namespace Hospital_Management_System.Controllers
             {
 
             }
-            return RedirectToAction("Login", "User",model);
+            // Return the login view with validation errors
+            return View("~/Views/User/Login.cshtml", model);
         }
+        [HttpPost]
         public IActionResult ValidateLogin(UserLoginModel model)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    // If the model is not valid (e.g., empty username/password),
-            //    // return the user to the login page to see the errors.
-            //    return View("Login");
-            //}
+            if (!ModelState.IsValid)
+            {
+                return View("~/Views/User/Login.cshtml", model);
+            }
             if (ModelState.IsValid)
             {
 
@@ -69,7 +69,7 @@ namespace Hospital_Management_System.Controllers
                         {
                             // If no user is found, show an error message
                             TempData["ErrorMessage"] = "Invalid username or password.";
-                            return RedirectToAction("Login","User");
+                            return View("~/Views/User/Login.cshtml", model);
                         }
                     }
                 }
@@ -77,18 +77,19 @@ namespace Hospital_Management_System.Controllers
                 {
                     // Handle any database or other errors
                     TempData["ErrorMessage"] = "An error occurred during login: " + e.Message;
-                    return RedirectToAction("Login");
+                    return View("~/Views/User/Login.cshtml", model);
                 }
             }
-            return RedirectToAction("Login","UserLogin", model);
+            return View("~/Views/User/Login.cshtml", model);
         }
 
+        [HttpPost]
         public IActionResult SignUp(UserModel model)
         {
             if (!ModelState.IsValid)
             {
-
-                return RedirectToAction("SignUp", "User" , model);
+                // Return the SignUp view with validation messages
+                return View("~/Views/User/SignUp.cshtml", model);
             }
 
             string connectionString = _configuration.GetConnectionString("ConnectionString");

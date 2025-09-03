@@ -1,0 +1,55 @@
+/* Modern UI Tweaks */
+:root {
+    --brand-primary: #2563eb;
+    --brand-accent: #22c55e;
+    --brand-warning: #f59e0b;
+    --surface: #ffffff;
+    --muted: #6b7280;
+}
+
+body {
+    background-color: #f5f7fb;
+}
+
+.card {
+    border-radius: 16px;
+}
+
+.card-header {
+    border-top-left-radius: 16px !important;
+    border-top-right-radius: 16px !important;
+}
+
+/* Sidebar spacing and active state */
+#sidebar .nav-link {
+    border-radius: 10px;
+    margin: 4px 0;
+}
+#sidebar .nav-link:hover {
+    background: #eef2ff;
+}
+
+/* DataTables */
+table.table {
+    border-color: #eef1f6;
+}
+table.table thead th {
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}
+
+/* Badges */
+.badge {
+    border-radius: 999px;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 10px;
+}
+
+/* Dashboard icon cards */
+.icon-box {
+    box-shadow: 0 6px 16px rgba(0,0,0,.06);
+}
+

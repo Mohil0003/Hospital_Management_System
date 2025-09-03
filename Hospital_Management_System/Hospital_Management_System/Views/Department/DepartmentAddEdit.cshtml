@@ -6,43 +6,44 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-<div class="container mt-5">
-    <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white fw-bold">
-            @ViewData["Title"]
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white d-flex align-items-center" style="border-top-left-radius:16px;border-top-right-radius:16px;">
+            <h5 class="mb-0 fw-semibold">@ViewData["Title"]</h5>
         </div>
         <div class="card-body">
             <form asp-action="SaveDepartment" asp-controller="Department" method="post" novalidate>
                 <input type="hidden" asp-for="DepartmentID" />
 
-                <div class="mb-3">
-                    <label asp-for="DepartmentName" class="form-label fw-bold">Department Name</label>
-                    <input asp-for="DepartmentName" class="form-control" placeholder="Enter department name" />
-                    <span asp-validation-for="DepartmentName" class="text-danger"></span>
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="Description" class="form-label fw-bold">Description</label>
-                    <textarea asp-for="Description" class="form-control" placeholder="Optional description"></textarea>
-                    <span asp-validation-for="Description" class="text-danger"></span>
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="UserID" class="form-label fw-bold">Created By (User)</label>
-                    <select asp-for="UserID" class="form-select" asp-items="ViewBag.UserList">
-                        <option value="">-- Select User --</option>
-                    </select>
-                    <span asp-validation-for="UserID" class="text-danger"></span>
-                </div>
-
-                <div class="form-check mb-3">
-                    <input asp-for="IsActive" class="form-check-input" type="checkbox" />
-                    <label asp-for="IsActive" class="form-check-label fw-bold">Active</label>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="DepartmentName" class="form-label fw-bold">Department Name</label>
+                        <input asp-for="DepartmentName" class="form-control" placeholder="Enter department name" />
+                        <span asp-validation-for="DepartmentName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="UserID" class="form-label fw-bold">Created By (User)</label>
+                        <select asp-for="UserID" class="form-select" asp-items="ViewBag.UserList">
+                            <option value="">-- Select User --</option>
+                        </select>
+                        <span asp-validation-for="UserID" class="text-danger"></span>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="Description" class="form-label fw-bold">Description</label>
+                        <textarea asp-for="Description" class="form-control" placeholder="Optional description"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="col-12 d-flex align-items-center pt-2">
+                        <div class="form-check">
+                            <input asp-for="IsActive" class="form-check-input" type="checkbox" />
+                            <label asp-for="IsActive" class="form-check-label fw-bold">Active</label>
+                        </div>
+                    </div>
                 </div>
 
                 <input type="hidden" asp-for="Modified" value="@DateTime.Now" />
 
-                <div class="d-flex gap-2">
+                <div class="d-flex gap-2 mt-3">
                     <button type="submit" class="btn btn-success">
                         @(Model.DepartmentID == 0 ? "Add Department" : "Update Department")
                     </button>

@@ -4,26 +4,32 @@
 <!-- Bootstrap Icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-<div class="container mt-5">
+<div class="container mt-4">
     <div class="card shadow-sm border-0">
-        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-            <h4 class="mb-0">Appointment List</h4>
-            <div class="ms-auto">
-            <a asp-controller="Appointment" asp-action="Index" class="btn btn-light fw-bold text-primary">
-                <i class="bi bi-plus-circle"></i> Add Appointment
-            </a>
-            <a class="btn btn-success ms-2"
-               asp-controller="Appointment"
-               asp-action="ExportToExcel">
-                <i class="bi bi-download me-2"></i>
-                Export To Excel
-            </a>
+        <div class="card-header bg-white d-flex flex-wrap gap-3 align-items-center" style="border-top-left-radius:16px;border-top-right-radius:16px;">
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-calendar-check text-warning fs-5"></i>
+                <h5 class="mb-0 fw-semibold">Appointments</h5>
+            </div>
+            <div class="ms-auto d-flex flex-wrap gap-2">
+                <div class="input-group input-group-sm" style="width:260px;">
+                    <span class="input-group-text bg-light"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Search appointments..." data-table-search="#appointmentsTable" />
+                </div>
+                <a asp-controller="Appointment" asp-action="Index" class="btn btn-primary btn-sm">
+                    <i class="bi bi-plus-circle me-1"></i> Add Appointment
+                </a>
+                <a class="btn btn-outline-success btn-sm"
+                   asp-controller="Appointment"
+                   asp-action="ExportToExcel">
+                    <i class="bi bi-download me-1"></i> Export
+                </a>
             </div>
         </div>
 
         <div class="card-body p-0">
             <div class="table-responsive">
-                <table class="table table-striped table-hover align-middle text-center mb-0">
+                <table id="appointmentsTable" class="table table-striped table-hover align-middle text-center mb-0">
                     <thead class="table-dark">
                         <tr>
                             <th>Doctor Name</th>
@@ -54,9 +60,9 @@
                                     <td>@Convert.ToDateTime(row["AppointmentDate"]).ToString("yyyy-MM-dd")</td>
                                     <td>@row["SpecialRemarks"]</td>
                                     <td>
-                                        @if (row["AppointmentStatus"].ToString() == "Confirmed")
+                                        @if (row["AppointmentStatus"].ToString() == "Completed")
                                         {
-                                            <span class="badge bg-success">Confirmed</span>
+                                            <span class="badge bg-success">Completed</span>
                                         }
                                         else if (row["AppointmentStatus"].ToString() == "Pending")
                                         {
