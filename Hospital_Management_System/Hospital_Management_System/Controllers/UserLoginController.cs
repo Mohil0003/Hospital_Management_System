@@ -18,9 +18,13 @@ namespace Hospital_Management_System.Controllers
             return View();
         }
 
-        public IActionResult Login()
+        public IActionResult Login(UserLoginModel model)
         {
-            return RedirectToAction("Login", "User");
+            if (ModelState.IsValid)
+            {
+
+            }
+            return RedirectToAction("Login", "User",model);
         }
         public IActionResult ValidateLogin(UserLoginModel model)
         {
@@ -76,7 +80,7 @@ namespace Hospital_Management_System.Controllers
                     return RedirectToAction("Login");
                 }
             }
-            return RedirectToAction("Login","User", model);
+            return RedirectToAction("Login","UserLogin", model);
         }
 
         public IActionResult SignUp(UserModel model)

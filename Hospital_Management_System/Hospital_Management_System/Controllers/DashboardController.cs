@@ -74,8 +74,8 @@ namespace Hospital_Management_System.Controllers
                         // Patients Growth
                         while (dr.Read())
                         {
-                            patientsGrowth.Add(new { Month = dr["Month"], Count = dr["TotalPatients"] });
-                        }
+                                patientsGrowth.Add(new { Month = dr["Month"], Count = dr["TotalPatients"] });
+                            }
 
                         // Move to next result set
                         dr.NextResult();

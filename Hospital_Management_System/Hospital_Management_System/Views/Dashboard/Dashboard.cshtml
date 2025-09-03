@@ -243,10 +243,12 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        console.log("asgfsdffgsdfg");
         fetch('/Dashboard/GetChartData')
             .then(res => res.json())
             .then(data => {
                 // Patients Growth Line Chart
+                console.log(data);
                 new Chart(document.getElementById('patientsChart'), {
                     type: 'line',
                     data: {
@@ -258,11 +260,6 @@
                             fill: false
                         }]
                     }
-                    options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: { legend: { display: true } }
-                     }
 
                 });
 
@@ -276,11 +273,7 @@
                             backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0']
                         }]
                     }
-                    options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: { legend: { display: true } }
-                     }
+              
                 });
 
                 // Revenue Analysis Bar Chart
@@ -294,11 +287,7 @@
                             backgroundColor: 'orange'
                         }]
                     }
-                    options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: { legend: { display: true } }
-                     }
+               
                 });
             });
     });
