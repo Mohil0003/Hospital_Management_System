@@ -218,6 +218,7 @@ namespace Hospital_Management_System.Controllers
 
             cmd.ExecuteNonQuery();
 
+            TempData["SuccessMessage"] = (model.DoctorDepartmentID == null || model.DoctorDepartmentID == 0) ? "Mapping added successfully" : "Mapping updated successfully";
             return RedirectToAction("DoctorDepartmentList");
         }
 
@@ -252,6 +253,7 @@ namespace Hospital_Management_System.Controllers
                 TempData["ErrorMessage"] = ex.Message;
                 Console.WriteLine(ex.ToString());
             }
+            TempData["SuccessMessage"] = "Mapping deleted successfully";
             return RedirectToAction("DoctorDepartmentList");
         }
     }

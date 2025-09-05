@@ -188,6 +188,7 @@ namespace Hospital_Management_System.Controllers
             cmd.Parameters.AddWithValue("@TotalConsultedAmount", (object?)model.TotalConsultedAmount ?? DBNull.Value);
 
             cmd.ExecuteNonQuery();
+            TempData["SuccessMessage"] = (model.AppointmentID == null || model.AppointmentID == 0) ? "Appointment added successfully" : "Appointment updated successfully";
             return RedirectToAction("AppointmentList");
         }
 
@@ -223,6 +224,7 @@ namespace Hospital_Management_System.Controllers
                 TempData["ErrorMessage"] = ex.Message;
                 Console.WriteLine(ex.ToString());
             }
+            TempData["SuccessMessage"] = "Appointment deleted successfully";
             return RedirectToAction("AppointmentList");
         }
     }

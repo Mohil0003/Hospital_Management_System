@@ -88,9 +88,10 @@
                                             <a asp-controller="Appointment"
                                                asp-action="AppointmentDelete"
                                                asp-route-AppointmentID="@row["AppointmentID"]"
-                                               class="btn btn-sm btn-outline-danger"
-                                               title="Delete"
-                                               onclick="return confirm('Are you sure you want to delete this appointment?');">
+                                               class="btn btn-sm btn-outline-danger js-delete"
+                                               data-title="Delete appointment?"
+                                               data-text="This appointment will be permanently deleted."
+                                               title="Delete">
                                                 <i class="bi bi-trash3-fill"></i>
                                             </a>
                                         </div>

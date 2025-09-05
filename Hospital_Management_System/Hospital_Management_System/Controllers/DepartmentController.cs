@@ -178,6 +178,7 @@ namespace Hospital_Management_System.Controllers
 
             cmdSave.ExecuteNonQuery();
 
+            TempData["SuccessMessage"] = model.DepartmentID == 0 ? "Department added successfully" : "Department updated successfully";
             return RedirectToAction("DepartmentList");
         }
 
@@ -218,6 +219,7 @@ namespace Hospital_Management_System.Controllers
                 TempData["ErrorMessage"] = ex.Message;
             }
 
+            TempData["SuccessMessage"] = "Department deleted successfully";
             return RedirectToAction("DepartmentList");
         }
     }

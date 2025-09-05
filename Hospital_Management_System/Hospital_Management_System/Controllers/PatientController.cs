@@ -160,6 +160,7 @@ namespace Hospital_Management_System.Controllers
             cmd.Parameters.AddWithValue("@Modified", model.Modified);
 
             cmd.ExecuteNonQuery();
+            TempData["SuccessMessage"] = (model.PatientID == null || model.PatientID == 0) ? "Patient added successfully" : "Patient updated successfully";
             return RedirectToAction("PatientList");
         }
 
@@ -197,6 +198,7 @@ namespace Hospital_Management_System.Controllers
                 TempData["ErrorMessage"] = ex.Message;
             }
 
+            TempData["SuccessMessage"] = "Patient deleted successfully";
             return RedirectToAction("PatientList");
         }
     }

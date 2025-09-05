@@ -66,9 +66,10 @@
                                             <a asp-controller="Department"
                                                asp-action="DepartmentDelete"
                                                asp-route-DepartmentID="@row["DepartmentID"]"
-                                               class="btn btn-sm btn-outline-danger"
-                                               title="Delete"
-                                               onclick="return confirm('Are you sure you want to delete this department?');">
+                                               class="btn btn-sm btn-outline-danger js-delete"
+                                               data-title="Delete department?"
+                                               data-text="This department will be permanently deleted."
+                                               title="Delete">
                                                 <i class="bi bi-trash3-fill"></i>
                                             </a>
                                         </div>

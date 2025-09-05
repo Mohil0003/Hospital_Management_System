@@ -201,6 +201,7 @@ namespace Hospital_Management_System.Controllers
 
             cmd.ExecuteNonQuery();
 
+            TempData["SuccessMessage"] = model.UserID == 0 ? "User added successfully" : "User updated successfully";
             return RedirectToAction("UserList");
         }
         public IActionResult UserList()
@@ -235,6 +236,7 @@ namespace Hospital_Management_System.Controllers
                 TempData["ErrorMessage"] = ex.Message;
                 Console.WriteLine(ex.ToString());
             }
+            TempData["SuccessMessage"] = "User deleted successfully";
             return RedirectToAction("UserList");
         }
     }

@@ -165,6 +165,7 @@ namespace Hospital_Management_System.Controllers
 
             cmd.ExecuteNonQuery();
 
+            TempData["SuccessMessage"] = (model.DoctorID == null || model.DoctorID == 0) ? "Doctor added successfully" : "Doctor updated successfully";
             return RedirectToAction("DoctorList");
         }
 
@@ -205,6 +206,7 @@ namespace Hospital_Management_System.Controllers
                 TempData["ErrorMessage"] = ex.Message;
             }
 
+            TempData["SuccessMessage"] = "Doctor deleted successfully";
             return RedirectToAction("DoctorList");
         }
     }

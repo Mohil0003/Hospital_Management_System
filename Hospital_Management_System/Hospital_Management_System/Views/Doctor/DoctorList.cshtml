@@ -75,9 +75,10 @@
                                         <a asp-controller="Doctor"
                                            asp-action="DoctorDelete"
                                            asp-route-DoctorID="@row["DoctorID"]"
-                                           class="btn btn-sm btn-outline-danger"
-                                           title="Delete"
-                                           >
+                                           class="btn btn-sm btn-outline-danger js-delete"
+                                           data-title="Delete doctor?"
+                                           data-text="This doctor will be permanently deleted."
+                                           title="Delete">
                                             <i class="bi bi-trash3-fill"></i>
                                         </a>
                                     </div>

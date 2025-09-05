@@ -66,8 +66,9 @@
                                 Edit
                             </a>
                             <a href="@Url.Action("UserDelete", "User", new { UserID = row["UserID"] })"
-                               class="btn btn-sm btn-danger rounded-pill"
-                               onclick="return confirmDelete(this)">
+                               class="btn btn-sm btn-danger rounded-pill js-delete"
+                               data-title="Are you sure?"
+                               data-text="This user will be permanently deleted!">
                                 Delete
                             </a>
                         </td>
@@ -78,24 +79,4 @@
     </div>
 </div>
 
-<script>
-    function confirmDelete(element) {
-        event.preventDefault();
-
-        Swal.fire({
-            title: "Are you sure?",
-            text: "This user will be permanently deleted!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = element.href;
-            }
-        });
-
-        return false;
-    }
-</script>
+<script></script>
