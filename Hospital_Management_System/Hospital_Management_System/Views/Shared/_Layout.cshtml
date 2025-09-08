@@ -224,13 +224,13 @@
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                         <img src="~/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">Mohil Parmar</span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2">@(Context.Session.GetString("UserName") ?? "Guest")</span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
-                            <span>Web Designer</span>
+                            <h6>@(Context.Session.GetString("UserName") ?? "Guest")</h6>
+                            <span>@(Context.Session.GetString("EmailAddress") ?? "No Email")</span>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
@@ -267,7 +267,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" asp-controller="User" asp-action="Logout">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -440,7 +440,7 @@
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-            Designed by <b style="color: blue; font-size:medium; font-weight:500">Mohil Parmar</b>
+            Designed by <b style="color: blue; font-size:medium; font-weight:500">@(Context.Session.GetString("UserName") ?? "Mohil Parmar")</b>
         </div>
     </footer><!-- End Footer -->
 
