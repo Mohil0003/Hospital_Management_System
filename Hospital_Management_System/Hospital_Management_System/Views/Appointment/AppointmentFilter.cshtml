@@ -1,0 +1,70 @@
+﻿<!-- Search Filter Component -->
+<div class="container my-3">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center"
+             style="cursor:pointer;"
+             data-bs-toggle="collapse"
+             data-bs-target="#searchFilter">
+            <h6 class="mb-0">🔍 Search Filters</h6>
+            <span class="ms-auto">
+                <i class="bi bi-chevron-down"></i>
+            </span>
+        </div>
+
+        <div id="searchFilter" class="collapse">
+            <div class="card-body">
+                <form id="searchForm" class="row g-3" method="post" asp-action="AppointmentListSearch" asp-controller="Appointment">
+
+                    <!-- Doctor ID -->
+                    <div class="col-md-3">
+                        <label for="doctorName" class="form-label">Doctor ID</label>
+                        <input type="text" class="form-control" name="doctorName" placeholder="Enter Doctor Name">
+                    </div>
+
+                    <!-- Patient ID -->
+                    <div class="col-md-3">
+                        <label for="patientName" class="form-label">Patient ID</label>
+                        <input type="text" class="form-control" name="patientName" placeholder="Enter Patient Name">
+                    </div>
+
+                    <!-- Start Date -->
+                    <div class="col-md-3">
+                        <label for="startDate" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" name="startDate">
+                    </div>
+
+                    <!-- End Date -->
+                    <div class="col-md-3">
+                        <label for="endDate" class="form-label">End Date</label>
+                        <input type="date" class="form-control" name="endDate">
+                    </div>
+
+                    <!-- Appointment Status -->
+                    <div class="col-md-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" name="status">
+                            <option value="">-- Select Status --</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="col-12 d-flex justify-content-end mt-3">
+                        <a asp-action="AppointmentList2">
+                            <button type="submit" class="btn btn-outline-secondary me-2">
+                                <i class="bi bi-arrow-repeat"></i> Reset
+                            </button>
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-search"></i> Search
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

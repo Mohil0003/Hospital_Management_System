@@ -24,8 +24,20 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcQXBwb2ludG1lbnRBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Appointment/AppointmentFilter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcQXBwb2ludG1lbnRGaWx0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Appointment/AppointmentList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcQXBwb2ludG1lbnRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Appointment/AppointmentList2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcQXBwb2ludG1lbnRMaXN0Mi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Appointment/AppoitnmentFilter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcQXBwb2l0bm1lbnRGaWx0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Github/Hospital_Management_by_.NET/Hospital_Management_System/Hospital_Management_System/Views/Dashboard/Dashboard.cshtml]

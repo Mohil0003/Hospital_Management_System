@@ -1,0 +1,1638 @@
+﻿@using System.Data
+@model DataTable
+
+@section Styles {
+    <style>
+        :root {
+            --bs-primary: #2563eb;
+            --bs-success: #059669;
+            --bs-warning: #d97706;
+            --bs-danger: #dc2626;
+            --bs-info: #0891b2;
+            --medical-blue: #1e40af;
+            --medical-green: #047857;
+            --medical-teal: #0f766e;
+            --neutral-50: #f8fafc;
+            --neutral-100: #f1f5f9;
+            --neutral-200: #e2e8f0;
+            --neutral-500: #64748b;
+            --neutral-700: #334155;
+            --neutral-900: #0f172a;
+        }
+
+        /* Enhanced Checkbox Styles */
+        .checkbox-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .checkbox-input {
+            display: none;
+        }
+
+        .checkbox-label {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 22px;
+            height: 22px;
+            border: 2px solid #ced4da;
+            border-radius: 6px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: white;
+        }
+
+        .checkbox-input:checked + .checkbox-label {
+            background: linear-gradient(135deg, #4a6cf7 0%, #3b5bdb 100%);
+            border-color: #4a6cf7;
+            box-shadow: 0 4px 10px rgba(74, 108, 247, 0.3);
+        }
+
+            .checkbox-input:checked + .checkbox-label::after {
+                content: "";
+                position: absolute;
+                left: 6px;
+                top: 2px;
+                width: 6px;
+                height: 11px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+            }
+
+        .checkbox-input:disabled + .checkbox-label {
+            background: #f1f3f5;
+            border-color: #e9ecef;
+            cursor: not-allowed;
+        }
+
+        .checkbox-label:hover {
+            border-color: #4a6cf7;
+            box-shadow: 0 0 0 4px rgba(74, 108, 247, 0.1);
+        }
+
+        /* Pulse animation when checked */
+        @@keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(74, 108, 247, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(74, 108, 247, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(74, 108, 247, 0);
+            }
+        }
+
+        .checkbox-input:checked + .checkbox-label {
+            animation: pulse 0.6s;
+        }
+
+        /* Professional Medical Color Scheme */
+        .medical-gradient-primary {
+            background: linear-gradient(135deg, var(--medical-blue), var(--bs-info)) !important;
+        }
+
+        .medical-gradient-success {
+            background: linear-gradient(135deg, var(--medical-green), var(--bs-success)) !important;
+        }
+
+        .medical-gradient-teal {
+            background: linear-gradient(135deg, var(--medical-teal), #06b6d4) !important;
+        }
+
+        /* Enhanced Card Styling */
+        .premium-card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+            .premium-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+            }
+
+        /* Professional Button Styling */
+        .btn-medical {
+            padding: 10px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .btn-medical::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                transition: left 0.5s;
+            }
+
+            .btn-medical:hover::before {
+                left: 100%;
+            }
+
+        .btn-add {
+            background: var(--medical-blue);
+            color: white;
+        }
+
+            .btn-add:hover {
+                background: #1d4ed8;
+                transform: translateY(-1px);
+                box-shadow: 0 6px 16px rgba(29, 78, 216, 0.3);
+                color: white;
+            }
+
+        .btn-delete-selected {
+            background: var(--bs-danger);
+            color: white;
+        }
+
+            .btn-delete-selected:hover {
+                background: #b91c1c;
+                transform: translateY(-1px);
+                box-shadow: 0 6px 16px rgba(185, 28, 28, 0.3);
+                color: white;
+            }
+
+        /* Enhanced Action Buttons */
+        .btn-action {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid;
+            font-size: 16px;
+        }
+
+        .btn-view {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--bs-primary);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+            .btn-view:hover {
+                background: var(--bs-primary);
+                color: white;
+                transform: translateY(-2px) scale(1.05);
+                box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+            }
+
+        .btn-edit {
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--medical-green);
+            border-color: rgba(5, 150, 105, 0.2);
+        }
+
+            .btn-edit:hover {
+                background: var(--medical-green);
+                color: white;
+                transform: translateY(-2px) scale(1.05);
+                box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3);
+            }
+
+        .btn-delete {
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--bs-danger);
+            border-color: rgba(220, 38, 38, 0.2);
+        }
+
+            .btn-delete:hover {
+                background: var(--bs-danger);
+                color: white;
+                transform: translateY(-2px) scale(1.05);
+                box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+            }
+
+        /* Professional Stats Cards */
+        .stats-card {
+            border: none;
+            border-radius: 10px;
+            background: white;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 150px;
+        }
+
+            .stats-card::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, var(--medical-blue), var(--bs-info));
+            }
+
+            .stats-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+            }
+
+        .stats-icon {
+            position: absolute;
+            top: 3.2rem;
+            right: 1.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--medical-blue);
+        }
+
+        /* Enhanced Table */
+        .medical-table-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(15, 23, 42, 0.1);
+            border: none;
+            background: white;
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, var(--neutral-50), var(--neutral-100));
+            padding: 2rem;
+            border-bottom: 1px solid var(--neutral-200);
+        }
+
+        .table-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--neutral-900);
+            margin: 0;
+            background: linear-gradient(135deg, var(--medical-blue), var(--bs-info));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .medical-table {
+            margin: 0;
+        }
+
+            .medical-table thead th {
+                background: linear-gradient(135deg, var(--neutral-50), var(--neutral-100));
+                border: none;
+                padding: 1.5rem 1.75rem;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                color: var(--neutral-700);
+                position: sticky;
+                top: 0;
+                z-index: 10;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+
+                .medical-table thead th:hover {
+                    background: linear-gradient(135deg, var(--neutral-100), var(--neutral-200));
+                }
+
+            .medical-table tbody tr {
+                transition: all 0.3s ease;
+                border: none;
+            }
+
+                .medical-table tbody tr:hover {
+                    background: rgba(37, 99, 235, 0.03) !important;
+                    box-shadow: inset 4px 0 0 var(--medical-blue);
+                    border-left: 3px solid purple;
+                }
+
+            .medical-table tbody td {
+                padding: 1rem 1.1rem;
+                border: none;
+                border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+                vertical-align: middle;
+                font-weight: 500;
+            }
+
+            .medical-table tbody tr:hover td {
+                background-color: #f9f2ff !important;
+            }
+
+
+        /* Professional Avatar */
+        .medical-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 21px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .avatar-appointment {
+            background: linear-gradient(135deg, var(--medical-blue), #3b82f6);
+        }
+
+        /* Enhanced Status Badges */
+        .status-badge {
+            padding: 0.2rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .badge-scheduled {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--bs-primary);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .badge-completed {
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--medical-green);
+            border-color: rgba(5, 150, 105, 0.2);
+        }
+
+        .badge-cancelled {
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--bs-danger);
+            border-color: rgba(220, 38, 38, 0.2);
+        }
+
+        .badge-in-progress {
+            background: rgba(217, 119, 6, 0.1);
+            color: var(--bs-warning);
+            border-color: rgba(217, 119, 6, 0.2);
+        }
+
+        /* Enhanced Search */
+        .search-container {
+            position: relative;
+        }
+
+        .search-input {
+            padding: 0.875rem 1rem 0.875rem 3rem;
+            border-radius: 16px;
+            border: 2px solid var(--neutral-200);
+            background: var(--neutral-50);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+            .search-input:focus {
+                border-color: var(--medical-blue);
+                box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+                background: white;
+                outline: none;
+            }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--neutral-500);
+            font-size: 1.125rem;
+        }
+
+        /* Professional Pagination */
+        .pagination {
+            gap: 0.375rem;
+        }
+
+            .pagination .page-link {
+                border: none;
+                border-radius: 12px;
+                width: 44px;
+                height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                background: white;
+                color: var(--neutral-500);
+                box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+            }
+
+                .pagination .page-link:hover {
+                    background: var(--medical-blue);
+                    color: white;
+                    transform: translateY(-1px);
+                    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
+                }
+
+            .pagination .page-item.active .page-link {
+                background: linear-gradient(135deg, var(--medical-blue), var(--bs-info));
+                color: white;
+                box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+            }
+
+        /* Loading Animation */
+        .loading-spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--neutral-200);
+            border-top: 4px solid var(--medical-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @@keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Premium Select Dropdown */
+        .form-select {
+            border: 2px solid var(--neutral-200);
+            border-radius: 12px;
+            padding: 0.5rem 1rem;
+            background: var(--neutral-50);
+            transition: all 0.3s ease;
+        }
+
+            .form-select:focus {
+                border-color: var(--medical-blue);
+                box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+                outline: none;
+            }
+
+        /* Amount Styling */
+        .amount-display {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--medical-green);
+        }
+
+        /* Responsive Design */
+        @@media (max-width: 768px) {
+            .table-header {
+                padding: 1rem;
+            }
+
+            .table-title {
+                font-size: 1.5rem;
+            }
+
+            .medical-table thead th,
+            .medical-table tbody td {
+                padding: 1rem;
+            }
+
+            .btn-medical {
+                padding: 8px 16px;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+}
+
+<main id="main" class="main" style="padding: 0;">
+
+    @* SweetAlert Notifications - Keep as is *@
+    @if (TempData["AppointmentDeleteSuccessMessage"] != null)
+    {
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: '@TempData["AppointmentDeleteSuccessMessage"]',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    toast: true,
+                    position: 'top-end',
+                    background: '#f0fdf4',
+                    iconColor: '#10b981',
+                    customClass: {
+                        popup: 'rounded-4 shadow-lg'
+                    }
+                });
+            });
+        </script>
+    }
+
+    @if (TempData["Success"] != null)
+    {
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: '@TempData["Success"]',
+                    confirmButtonColor: '#2563eb',
+                    background: '#f0fdf4',
+                    iconColor: '#10b981',
+                    customClass: {
+                        popup: 'rounded-4 shadow-lg'
+                    }
+                });
+            });
+        </script>
+    }
+
+    @if (TempData["AppointmentDeleteErrorMessage"] != null)
+    {
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: '@TempData["AppointmentDeleteErrorMessage"]',
+                    confirmButtonColor: '#dc2626',
+                    background: '#fef2f2',
+                    iconColor: '#ef4444',
+                    customClass: {
+                        popup: 'rounded-4 shadow-lg'
+                    }
+                });
+            });
+        </script>
+    }
+
+    @* Enhanced Breadcrumbs *@
+
+
+
+    <div class="container-fluid py-4">
+        <div class="d-flex align-items-center mb-3">
+            <div class="medical-avatar avatar-appointment me-3" style="height: 58px; width: 58px; border-radius:25px">
+                <i class="bi bi-calendar-heart fs-5"></i>
+            </div>
+            <div>
+                <h1 class="mb-1 fw-bold text-gradient" style="font-size: 2.25rem; background: linear-gradient(135deg, #1e40af, #0891b2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    Appointment Management
+                </h1>
+                <p class="text-muted mb-0 fw-medium">Manage patient appointments and scheduling</p>
+            </div>
+        </div>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-white p-3 rounded-4 shadow-sm border-0" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9) !important;">
+                <li class="breadcrumb-item">
+                    <a href="/Home/Index" class="text-decoration-none fw-semibold text-primary">
+                        <i class="bi bi-house-door-fill me-1"></i>Dashboard
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <i class="bi bi-calendar-plus me-1 text-muted"></i>Appointments
+                </li>
+                <li class="breadcrumb-item active fw-semibold" aria-current="page">Appointment List</li>
+            </ol>
+        </nav>
+    </div>
+
+    @* Enhanced Stats Cards *@
+    <div class="container-fluid mb-3">
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="card stats-card premium-card">
+                    <div class="card-body text-start position-relative p-4">
+                        <div class="stats-icon">
+                            <i class="bi bi-calendar-check-fill"></i>
+                        </div>
+                        <div class="mt-1">
+                            <h6 class="text-muted text-uppercase fw-bold mb-2" style="font-size: 0.75rem; letter-spacing: 0.1em;">Today's <br /> Appointments</h6>
+                            <h2 class="fw-bold mb-0" style="font-size: 2.3rem; color: var(--medical-blue);">24</h2>
+                            <div class="">
+                                <span class="badge badge-scheduled">
+                                    <i class="bi bi-arrow-up"></i> +3 from yesterday
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card stats-card premium-card">
+                    <div class="card-body text-start position-relative p-4">
+                        <div class="stats-icon" style="background: rgba(5, 150, 105, 0.1); color: var(--medical-green);">
+                            <i class="bi bi-check-circle-fill"></i>
+                        </div>
+                        <div class="mt-1">
+                            <h6 class="text-muted text-uppercase fw-bold mb-2" style="font-size: 0.75rem; letter-spacing: 0.1em;">Completed</h6>
+                            <h2 class="fw-bold mb-0" style="font-size: 2.3rem; color: var(--medical-green);">156</h2>
+                            <div class="mt-2">
+                                <span class="status-badge badge-completed">
+                                    <i class="bi bi-graph-up"></i> This month
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card stats-card premium-card">
+                    <div class="card-body text-start position-relative p-4">
+                        <div class="stats-icon" style="background: rgba(217, 119, 6, 0.1); color: var(--bs-warning);">
+                            <i class="bi bi-hourglass-split"></i>
+                        </div>
+                        <div class="mt-1">
+                            <h6 class="text-muted text-uppercase fw-bold mb-2" style="font-size: 0.75rem; letter-spacing: 0.1em;">Pending</h6>
+                            <h2 class="fw-bold mb-0" style="font-size: 2.3rem; color: var(--bs-warning);">8</h2>
+                            <div class="mt-2">
+                                <span class="status-badge badge-in-progress">
+                                    <i class="bi bi-clock"></i> Awaiting
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card stats-card premium-card">
+                    <div class="card-body text-start position-relative p-4">
+                        <div class="stats-icon" style="background: rgba(220, 38, 38, 0.1); color: var(--bs-danger);">
+                            <i class="bi bi-x-circle-fill"></i>
+                        </div>
+                        <div class="mt-1">
+                            <h6 class="text-muted text-uppercase fw-bold mb-2" style="font-size: 0.75rem; letter-spacing: 0.1em;">Cancelled</h6>
+                            <h2 class="fw-bold mb-0" style="font-size: 2.3rem; color: var(--bs-danger);">12</h2>
+                            <div class="mt-2">
+                                <span class="status-badge badge-cancelled">
+                                    <i class="bi bi-arrow-down"></i> This week
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Search Filter Component -->
+    <div class="container my-3">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center"
+                 style="cursor:pointer;"
+                 data-bs-toggle="collapse"
+                 data-bs-target="#searchFilter">
+                <h6 class="mb-0">🔍 Search Filters</h6>
+                <span class="ms-auto">
+                    <i class="bi bi-chevron-down"></i>
+                </span>
+            </div>
+
+            <div id="searchFilter" class="collapse">
+                <div class="card-body">
+                    <form id="searchForm" class="row g-3" method="post" asp-action="AppointmentListSearch" asp-controller="Appointment">
+
+                        <!-- Doctor ID -->
+                        <div class="col-md-3">
+                            <label for="doctorName" class="form-label">Doctor ID</label>
+                            <input type="text" class="form-control" name="doctorName" placeholder="Enter Doctor Name">
+                        </div>
+
+                        <!-- Patient ID -->
+                        <div class="col-md-3">
+                            <label for="patientName" class="form-label">Patient ID</label>
+                            <input type="text" class="form-control" name="patientName" placeholder="Enter Patient Name">
+                        </div>
+
+                        <!-- Start Date -->
+                        <div class="col-md-3">
+                            <label for="startDate" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" name="startDate">
+                        </div>
+
+                        <!-- End Date -->
+                        <div class="col-md-3">
+                            <label for="endDate" class="form-label">End Date</label>
+                            <input type="date" class="form-control" name="endDate">
+                        </div>
+
+                        <!-- Appointment Status -->
+                        <div class="col-md-3">
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" name="status">
+                                <option value="">-- Select Status --</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Confirmed">Confirmed</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="col-12 d-flex justify-content-end mt-3">
+                            <a asp-action="AppointmentList2">
+                                <button type="submit" class="btn btn-outline-secondary me-2">
+                                    <i class="bi bi-arrow-repeat"></i> Reset
+                                </button>
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-search"></i> Search
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @* Enhanced DataTable *@
+    <div class="container-fluid">
+        <div class="card medical-table-container">
+            @* <div class="table-header d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <div class="medical-avatar avatar-appointment me-3" style="width: 56px; height: 56px;">
+                        <i class="bi bi-calendar-week" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <div>
+                        <h3 class="table-title mb-0">Appointment Schedule</h3>
+                        <p class="text-muted mb-0 fw-medium">Complete appointment management system</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn btn-medical btn-delete-selected d-flex align-items-center"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            data-bs-title="Cancel Selected Appointments">
+                        <i class="bi bi-calendar-x-fill me-2"></i>Cancel Selected
+                    </button>
+                  
+                    <a asp-action="" class="text-decoration-none">
+                        <button class="btn btn-medical btn-add d-flex align-items-center"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="top"
+                                data-bs-title="Schedule New Appointment">
+                            <i class="bi bi-calendar-plus-fill me-2"></i>Schedule New
+                        </button>
+                    </a>
+
+                    <div class="mt-3">
+                        @{
+                            ViewBag.ExportFileName = "AppointmentList_" + DateTime.Now.ToString("yyyyMMdd");
+                        }
+                        @Html.Partial("_ExportDropdown", "Appointment")
+                    </div>
+
+                </div>
+            </div> *@
+
+            <div class="table-header d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
+                <!-- Left section -->
+                <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center text-sm-start text-center gap-3">
+                    <div class="medical-avatar avatar-appointment" style="width: 56px; height: 56px;">
+                        <i class="bi bi-calendar-week" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <div>
+                        <h3 class="table-title mb-0">Appointment Schedule</h3>
+                        <p class="text-muted mb-0 fw-medium">Complete appointment management system</p>
+                    </div>
+                </div>
+
+                <!-- Right section -->
+                <div class="d-flex flex-wrap justify-content-start justify-content-md-end align-items-center gap-2">
+                    <button class="btn btn-medical btn-delete-selected d-flex align-items-center"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            data-bs-title="Cancel Selected Appointments">
+                        <i class="bi bi-calendar-x-fill me-2"></i>Cancel Selected
+                    </button>
+
+                    <a asp-action="" class="text-decoration-none">
+                        <button class="btn btn-medical btn-add d-flex align-items-center"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="top"
+                                data-bs-title="Schedule New Appointment">
+                            <i class="bi bi-calendar-plus-fill me-2"></i>Schedule New
+                        </button>
+                    </a>
+
+                    <div class="mt-3">
+                        @{
+                            ViewBag.ExportFileName = "AppointmentList_" + DateTime.Now.ToString("yyyyMMdd");
+                        }
+                        @* @Html.Partial("_ExportDropdown", "Appointment") *@
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="p-4 border-bottom" style="background: rgba(248, 250, 252, 0.5);">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-8">
+                        <div class="search-container">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text"
+                                   class="form-control search-input"
+                                   id="searchInput"
+                                   placeholder="Search by patient name, doctor, appointment date..."
+                                   onkeyup="searchTable()">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="d-flex align-items-center justify-content-end gap-3">
+                            <label for="pageSize" class="form-label mb-0 fw-semibold text-muted">Show:</label>
+                            <select id="pageSize" class="form-select" style="width: 80px;" onchange="changePageSize()">
+                                <option value="5">5</option>
+                                <option value="10" selected>10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table medical-table" id="appointmentTable">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)" class="user-select-none">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-hash me-2"></i>ID
+                                    <i class="bi bi-arrow-down-up ms-auto opacity-50"></i>
+                                </div>
+                            </th>
+                            <th style="width: 30px;">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" id="select-all" class="checkbox-input">
+                                    <label for="select-all" class="checkbox-label"></label>
+                                </div>
+                            </th>
+                            <th onclick="sortTable(1)" class="user-select-none">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-person-heart me-2"></i>Patient & Doctor
+                                    <i class="bi bi-arrow-down-up ms-auto opacity-50"></i>
+                                </div>
+                            </th>
+                            <th onclick="sortTable(2)" class="user-select-none">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-calendar-event me-2"></i>Date
+                                    <i class="bi bi-arrow-down-up ms-auto opacity-50"></i>
+                                </div>
+                            </th>
+                            <th onclick="sortTable(3)" class="user-select-none">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-activity me-2"></i>Status
+                                    <i class="bi bi-arrow-down-up ms-auto opacity-50"></i>
+                                </div>
+                            </th>
+                            <th onclick="sortTable(4)" class="user-select-none">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-file-text me-2"></i>Description
+                                    <i class="bi bi-arrow-down-up ms-auto opacity-50"></i>
+                                </div>
+                            </th>
+                            <th onclick="sortTable(5)" class="user-select-none">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-currency-dollar me-2"></i>Amount
+                                    <i class="bi bi-arrow-down-up ms-auto opacity-50"></i>
+                                </div>
+                            </th>
+                            <th class="text-center">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-gear-fill me-2"></i>Actions
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        @foreach (DataRow row in Model.Rows)
+                        {
+                            <tr>
+                                <td>
+                                    <span class="fw-bold px-3 py-2 rounded-3" style="font-size: 0.875rem; background-color:lightcyan; color:purple">
+                                        #@row["AppointmentID"]
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="checkbox-container">
+                                        <input type="checkbox"
+                                               id="chk_@row["AppointmentID"]"
+                                               class="checkbox-input row-checkbox">
+                                        <label for="chk_@row["AppointmentID"]" class="checkbox-label"></label>
+                                    </div>
+                                </td>
+
+                                <td style="min-width: 230px;">
+                                    <div class="d-flex align-items-center">
+                                        <div class="medical-avatar avatar-appointment me-3">
+                                            <i class="bi bi-person-heart"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold text-dark mb-1">@row["Name"]</div>
+                                            <small class="text-muted d-flex align-items-center">
+                                                @* <i class="bi bi-person-badge me-1 text-info"></i> *@
+                                                <i class="fa-solid fa-stethoscope me-2"></i>
+                                                Dr. @row["DoctorName"]
+                                            </small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="fw-semibold text-dark">@Convert.ToDateTime(row["AppointmentDate"]).ToString("MMM dd, yyyy")</div>
+                                            <small class="text-muted">@Convert.ToDateTime(row["AppointmentDate"]).ToString("hh:mm tt")</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    @{
+                                        string status = row["AppointmentStatus"].ToString().ToLower();
+                                        string statusClass = "";
+                                        string statusIcon = "";
+
+                                        switch (status)
+                                        {
+                                            case "scheduled":
+                                                statusClass = "badge-scheduled";
+                                                statusIcon = "bi-calendar-check";
+                                                break;
+                                            case "completed":
+                                                statusClass = "badge-completed";
+                                                statusIcon = "bi-check-circle-fill";
+                                                break;
+                                            case "cancelled":
+                                                statusClass = "badge-cancelled";
+                                                statusIcon = "bi-x-circle-fill";
+                                                break;
+                                            case "pending":
+                                                statusClass = "badge-in-progress";
+                                                statusIcon = "bi-hourglass-split";
+                                                break;
+                                            default:
+                                                statusClass = "badge-scheduled";
+                                                statusIcon = "bi-calendar-check";
+                                                break;
+                                        }
+                                    }
+                                    <span class="status-badge @statusClass">
+                                        <i class="bi @statusIcon"></i>
+                                        @((char.ToUpper(row["AppointmentStatus"].ToString()[0]) + row["AppointmentStatus"].ToString().Substring(1).ToLower()))
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="text-truncate" style="max-width: 200px;"
+                                         data-bs-toggle="tooltip"
+                                         data-bs-placement="top"
+                                         data-bs-title="@row["Description"]">
+                                        <i class="bi bi-file-earmark-text text-muted me-2"></i>
+                                        <span class="fw-medium">@(row["Description"].ToString().Length > 30 ? row["Description"].ToString().Substring(0, 30) + "..." : row["Description"].ToString())</span>
+                                    </div>
+                                    @if (!string.IsNullOrEmpty(row["SpecialRemarks"].ToString()))
+                                    {
+                                        <small class="text-info d-block mt-1">
+                                            <i class="bi bi-info-circle me-1"></i>
+                                            @(row["SpecialRemarks"].ToString().Length > 25 ? row["SpecialRemarks"].ToString().Substring(0, 25) + "..." : row["SpecialRemarks"].ToString())
+                                        </small>
+                                    }
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="medical-avatar me-2" style="width: 30px; height: 30px; background: linear-gradient(135deg, #059669, #10b981);">
+                                            <i class="bi bi-currency-rupee" style="font-size: 0.75rem;"></i>
+                                        </div>
+                                        <div class="amount-display">@Convert.ToDecimal(row["TotalConsultedAmount"]).ToString("N2")</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <button class="btn btn-action btn-view"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-placement="top"
+                                                data-bs-title="View Appointment Details"
+                                                onclick="viewAppointment(@row["AppointmentID"], '@row["Name"]', '@row["DoctorName"]', '@row["AppointmentDate"]', '@row["AppointmentStatus"]', '@row["TotalConsultedAmount"]')">
+                                            <i class="bi bi-eye-fill"></i>
+                                        </button>
+                                        <a asp-controller="Appointment" asp-action="AppointmentEdit" asp-route-appointmentID="@row["AppointmentID"]" class="btn btn-action btn-edit"
+                                           data-bs-toggle="tooltip"
+                                           data-bs-placement="top"
+                                           data-bs-title="Edit Appointment">
+                                            <i class="bi bi-pencil-fill"></i>
+                                        </a>
+                                        <button class="btn btn-action btn-delete"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-placement="top"
+                                                data-bs-title="Cancel Appointment"
+                                                onclick="confirmDelete(@row["AppointmentID"], '@row["Name"]', '@row["AppointmentDate"]')">
+                                            <i class="bi bi-calendar-x-fill"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="p-4 border-top" style="background: rgba(248, 250, 252, 0.8);">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center text-muted fw-medium">
+                            <div class="medical-avatar me-2" style="width: 32px; height: 32px; background: linear-gradient(135deg, #64748b, #475569);">
+                                <i class="bi bi-info-circle" style="font-size: 0.875rem;"></i>
+                            </div>
+                            <span>
+                                Showing <span id="showingStart" class="text-primary fw-bold">1</span> to
+                                <span id="showingEnd" class="text-primary fw-bold">10</span> of
+                                <span id="totalRecords" class="text-primary fw-bold">@Model.Rows.Count</span> appointments
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <nav aria-label="Table pagination">
+                            <ul class="pagination justify-content-end mb-0" id="paginationControls">
+                                <!-- Pagination buttons will be generated by JavaScript -->
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Initialize tooltips and interactions
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Bootstrap tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        // Add smooth animations to cards
+        const cards = document.querySelectorAll('.stats-card');
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 100}ms`;
+            card.classList.add('animate__animated', 'animate__fadeInUp');
+        });
+    });
+
+    // Enhanced SweetAlert confirmDelete function for appointments
+    function confirmDelete(id, patientName, appointmentDate) {
+        const formattedDate = new Date(appointmentDate).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        Swal.fire({
+            title: 'Cancel Appointment?',
+            html: `
+                <div class="text-center p-4">
+                    <div class="mb-4">
+                        <div class="medical-avatar mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc2626, #ef4444);">
+                            <i class="bi bi-calendar-x-fill" style="font-size: 2.5rem;"></i>
+                        </div>
+                    </div>
+                    <h4 class="mb-3 fw-bold text-dark">Cancel Appointment</h4>
+                    <p class="text-muted mb-2">You are about to cancel the appointment for:</p>
+                    <div class="alert alert-warning border-0 rounded-3 p-3 mb-3" style="background: rgba(217, 119, 6, 0.1);">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="medical-avatar me-3" style="width: 40px; height: 40px; background: linear-gradient(135deg, #1e40af, #3b82f6);">
+                                <i class="bi bi-person-heart"></i>
+                            </div>
+                            <div class="text-start">
+                                <strong class="text-dark d-block">${patientName}</strong>
+                                <small class="text-muted">${formattedDate}</small>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted mb-0 small">This action will notify both the patient and doctor about the cancellation.</p>
+                </div>
+            `,
+            icon: false,
+            showCancelButton: true,
+            confirmButtonColor: '#dc2626',
+            cancelButtonColor: '#64748b',
+            confirmButtonText: '<i class="bi bi-calendar-x-fill me-2"></i>Cancel Appointment',
+            cancelButtonText: '<i class="bi bi-arrow-left me-2"></i>Go Back',
+            customClass: {
+                popup: 'rounded-4 shadow-lg border-0',
+                confirmButton: 'btn-lg rounded-3 fw-semibold px-4',
+                cancelButton: 'btn-lg rounded-3 fw-semibold px-4'
+            },
+            background: '#ffffff',
+            width: '550px',
+            padding: '2rem',
+            backdrop: 'rgba(15, 23, 42, 0.6)'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Show professional loading state
+                Swal.fire({
+                    title: 'Processing Cancellation...',
+                    html: `
+                        <div class="text-center p-4">
+                            <div class="loading-spinner mx-auto mb-3"></div>
+                            <h5 class="text-dark mb-2">Cancelling Appointment</h5>
+                            <p class="text-muted mb-0">Notifying patient and doctor about the cancellation...</p>
+                        </div>
+                    `,
+                    allowOutsideClick: false,
+                    showConfirmButton: false,
+                    customClass: {
+                        popup: 'rounded-4 shadow-lg border-0'
+                    }
+                });
+
+                // Simulate processing delay
+                setTimeout(() => {
+                    window.location.href = '/Appointment/CancelAppointment?appointmentId=' + id;
+                }, 2500);
+            }
+        });
+    }
+
+    // Enhanced view function for appointments
+    function viewAppointment(id, patientName, doctorName, appointmentDate, status, amount) {
+        const formattedDate = new Date(appointmentDate).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        const formattedTime = new Date(appointmentDate).toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        // Status styling
+        let statusBadgeClass = 'badge-scheduled';
+        let statusIcon = 'bi-calendar-check';
+        switch (status.toLowerCase()) {
+            case 'completed':
+                statusBadgeClass = 'badge-completed';
+                statusIcon = 'bi-check-circle-fill';
+                break;
+            case 'cancelled':
+                statusBadgeClass = 'badge-cancelled';
+                statusIcon = 'bi-x-circle-fill';
+                break;
+            case 'in-progress':
+                statusBadgeClass = 'badge-in-progress';
+                statusIcon = 'bi-hourglass-split';
+                break;
+        }
+
+        Swal.fire({
+            title: false,
+            html: `
+                <div class="text-start p-4">
+                    <div class="text-center mb-4">
+                        <div class="medical-avatar mx-auto mb-3" style="width: 90px; height: 90px; background: linear-gradient(135deg, #1e40af, #0891b2);">
+                            <i class="bi bi-calendar-heart" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h3 class="mb-2 fw-bold text-dark">Appointment Details</h3>
+                        <div class="status-badge ${statusBadgeClass} mx-auto">
+                            <i class="bi ${statusIcon}"></i>
+                            ${status.charAt(0).toUpperCase() + status.slice(1)}
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="card border-0 rounded-4" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9);">
+                                <div class="card-body p-4">
+                                    <div class="row g-4">
+                                        <div class="col-md-6">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="medical-avatar me-3" style="width: 40px; height: 40px; background: linear-gradient(135deg, #2563eb, #3b82f6);">
+                                                    <i class="bi bi-hash"></i>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted d-block">Appointment ID</small>
+                                                    <strong class="text-dark">#${id}</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="medical-avatar me-3" style="width: 40px; height: 40px; background: linear-gradient(135deg, #059669, #10b981);">
+                                                    <i class="bi bi-person-heart"></i>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted d-block">Patient Name</small>
+                                                    <strong class="text-dark">${patientName}</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="medical-avatar me-3" style="width: 40px; height: 40px; background: linear-gradient(135deg, #0f766e, #0891b2);">
+                                                    <i class="bi bi-person-badge"></i>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted d-block">Doctor</small>
+                                                    <strong class="text-dark">Dr. ${doctorName}</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="medical-avatar me-3" style="width: 40px; height: 40px; background: linear-gradient(135deg, #7c2d12, #dc2626);">
+                                                    <i class="bi bi-calendar-event"></i>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted d-block">Appointment Date</small>
+                                                    <strong class="text-dark">${formattedDate}</strong>
+                                                    <small class="text-muted d-block">${formattedTime}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="medical-avatar me-3" style="width: 40px; height: 40px; background: linear-gradient(135deg, #059669, #22c55e);">
+                                                    <i class="bi bi-currency-dollar"></i>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted d-block">Consultation Fee</small>
+                                                    <div class="amount-display">₹${parseFloat(amount).toFixed(2)}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="medical-avatar me-3" style="width: 40px; height: 40px; background: linear-gradient(135deg, #7c3aed, #a855f7);">
+                                                    <i class="bi bi-activity"></i>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted d-block">Status</small>
+                                                    <span class="status-badge ${statusBadgeClass}">
+                                                        <i class="bi ${statusIcon}"></i>
+                                                        ${status.charAt(0).toUpperCase() + status.slice(1)}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            confirmButtonText: '<i class="bi bi-pencil-square me-2"></i>Edit Appointment',
+            showCancelButton: true,
+            cancelButtonText: '<i class="bi bi-x-lg me-2"></i>Close',
+            confirmButtonColor: '#1e40af',
+            cancelButtonColor: '#64748b',
+            customClass: {
+                popup: 'rounded-4 shadow-lg border-0',
+                confirmButton: 'btn-lg rounded-3 fw-semibold px-4',
+                cancelButton: 'btn-lg rounded-3 fw-semibold px-4'
+            },
+            width: '700px',
+            showClass: {
+                popup: 'animate__animated animate__fadeInUp'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/Appointment/EditAppointment/' + id;
+            }
+        });
+    }
+
+    // Pagination and Table Enhancement Scripts (keeping existing functionality)
+    let currentPage = 1;
+    let pageSize = 10;
+    let totalRecords = @Model.Rows.Count;
+    let filteredRecords = totalRecords;
+    let allRows = [];
+    let sortDirection = {};
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Store all rows for filtering and pagination
+        const tbody = document.getElementById('tableBody');
+        allRows = Array.from(tbody.querySelectorAll('tr'));
+
+        setupPagination();
+        updatePaginationInfo();
+        initializeTableInteractions();
+    });
+
+    function initializeTableInteractions() {
+        // Enhanced search with better UX
+        const searchInput = document.getElementById('searchInput');
+        let searchTimeout;
+
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                searchTable();
+            }, 300);
+        });
+
+        // Professional keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.target.tagName.toLowerCase() !== 'input' && !document.querySelector('.swal2-popup')) {
+                const totalPages = Math.ceil(filteredRecords / pageSize);
+
+                if (e.key === 'ArrowLeft' && currentPage > 1) {
+                    e.preventDefault();
+                    changePage(currentPage - 1);
+                } else if (e.key === 'ArrowRight' && currentPage < totalPages) {
+                    e.preventDefault();
+                    changePage(currentPage + 1);
+                } else if (e.key === '/' || (e.key === 'f' && e.ctrlKey)) {
+                    e.preventDefault();
+                    searchInput.focus();
+                }
+            }
+        });
+    }
+
+    function setupPagination() {
+        const totalPages = Math.ceil(filteredRecords / pageSize);
+        const paginationControls = document.getElementById('paginationControls');
+
+        let paginationHTML = '';
+
+        // Previous button
+        paginationHTML += `
+            <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                <a class="page-link" href="javascript:void(0)" onclick="changePage(${currentPage - 1})">
+                    <i class="bi bi-chevron-left"></i>
+                </a>
+            </li>
+        `;
+
+        // Smart pagination logic
+        const startPage = Math.max(1, currentPage - 2);
+        const endPage = Math.min(totalPages, currentPage + 2);
+
+        if (startPage > 1) {
+            paginationHTML += `
+                <li class="page-item">
+                    <a class="page-link" href="javascript:void(0)" onclick="changePage(1)">1</a>
+                </li>
+            `;
+            if (startPage > 2) {
+                paginationHTML += `
+                    <li class="page-item disabled">
+                        <span class="page-link">...</span>
+                    </li>
+                `;
+            }
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+            paginationHTML += `
+                <li class="page-item ${i === currentPage ? 'active' : ''}">
+                    <a class="page-link" href="javascript:void(0)" onclick="changePage(${i})">${i}</a>
+                </li>
+            `;
+        }
+
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) {
+                paginationHTML += `
+                    <li class="page-item disabled">
+                        <span class="page-link">...</span>
+                    </li>
+                `;
+            }
+            paginationHTML += `
+                <li class="page-item">
+                    <a class="page-link" href="javascript:void(0)" onclick="changePage(${totalPages})">${totalPages}</a>
+                </li>
+            `;
+        }
+
+        // Next button
+        paginationHTML += `
+            <li class="page-item ${currentPage === totalPages || totalPages === 0 ? 'disabled' : ''}">
+                <a class="page-link" href="javascript:void(0)" onclick="changePage(${currentPage + 1})">
+                    <i class="bi bi-chevron-right"></i>
+                </a>
+            </li>
+        `;
+
+        paginationControls.innerHTML = paginationHTML;
+        displayPage();
+    }
+
+    function displayPage() {
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = '';
+
+        const startIndex = (currentPage - 1) * pageSize;
+        const endIndex = Math.min(startIndex + pageSize, filteredRecords);
+        const visibleRows = getFilteredRows().slice(startIndex, endIndex);
+
+        if (visibleRows.length === 0 && filteredRecords === 0) {
+            showEmptyState();
+        } else {
+            visibleRows.forEach(row => {
+                const clonedRow = row.cloneNode(true);
+                tbody.appendChild(clonedRow);
+            });
+            initializeTooltipsForRows();
+        }
+
+        updatePaginationInfo();
+    }
+
+    function initializeTooltipsForRows() {
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('#tableBody [data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+            new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    }
+
+    function changePage(page) {
+        const totalPages = Math.ceil(filteredRecords / pageSize);
+        if (page < 1 || page > totalPages || page === currentPage) return;
+        currentPage = page;
+        setupPagination();
+    }
+
+    function changePageSize() {
+        pageSize = parseInt(document.getElementById('pageSize').value);
+        currentPage = 1;
+        setupPagination();
+    }
+
+    function updatePaginationInfo() {
+        const startRecord = filteredRecords === 0 ? 0 : (currentPage - 1) * pageSize + 1;
+        const endRecord = Math.min(currentPage * pageSize, filteredRecords);
+
+        document.getElementById('showingStart').textContent = startRecord;
+        document.getElementById('showingEnd').textContent = endRecord;
+        document.getElementById('totalRecords').textContent = filteredRecords;
+    }
+
+    function searchTable() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+
+        if (searchTerm === '') {
+            filteredRecords = allRows.length;
+        } else {
+            const filteredRows = allRows.filter(row => {
+                return row.textContent.toLowerCase().includes(searchTerm);
+            });
+            filteredRecords = filteredRows.length;
+        }
+
+        currentPage = 1;
+        setupPagination();
+    }
+
+    function getFilteredRows() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+        if (!searchTerm) return allRows;
+
+        return allRows.filter(row => {
+            return row.textContent.toLowerCase().includes(searchTerm);
+        });
+    }
+
+    function showEmptyState() {
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="7" class="text-center py-5">
+                    <div class="text-center">
+                        <div class="medical-avatar mx-auto mb-4" style="width: 80px; height: 80px; background: linear-gradient(135deg, #64748b, #94a3b8);">
+                            <i class="bi bi-calendar-x" style="font-size: 2rem;"></i>
+                        </div>
+                        <h4 class="text-dark mb-3 fw-bold">No Appointments Found</h4>
+                        <p class="text-muted mb-4">We couldn't find any appointments matching your search criteria.</p>
+                        <button class="btn btn-medical btn-add" onclick="clearSearch()">
+                            <i class="bi bi-arrow-clockwise me-2"></i>Clear Search
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        `;
+    }
+
+    function clearSearch() {
+        document.getElementById('searchInput').value = '';
+        searchTable();
+        document.getElementById('searchInput').focus();
+    }
+
+    // Enhanced sorting with visual feedback
+    function sortTable(columnIndex) {
+        const rows = getFilteredRows();
+        sortDirection[columnIndex] = sortDirection[columnIndex] === 'asc' ? 'desc' : 'asc';
+
+        rows.sort((a, b) => {
+            let aValue = a.cells[columnIndex].textContent.trim();
+            let bValue = b.cells[columnIndex].textContent.trim();
+
+            if (columnIndex === 0) {
+                aValue = aValue.replace('#', '');
+                bValue = bValue.replace('#', '');
+            } else if (columnIndex === 1) {
+                aValue = a.cells[columnIndex].querySelector('.fw-bold').textContent.trim();
+                bValue = b.cells[columnIndex].querySelector('.fw-bold').textContent.trim();
+            } else if (columnIndex === 5) { // Amount column
+                aValue = aValue.replace('₹', '').replace(',', '');
+                bValue = bValue.replace('₹', '').replace(',', '');
+            }
+
+            const aNum = parseFloat(aValue);
+            const bNum = parseFloat(bValue);
+
+            if (!isNaN(aNum) && !isNaN(bNum)) {
+                return sortDirection[columnIndex] === 'asc' ? aNum - bNum : bNum - aNum;
+            }
+
+            return sortDirection[columnIndex] === 'asc'
+                ? aValue.localeCompare(bValue)
+                : bValue.localeCompare(aValue);
+        });
+
+        allRows = rows;
+        currentPage = 1;
+        setupPagination();
+        updateSortIndicators(columnIndex);
+    }
+
+    function updateSortIndicators(activeColumn) {
+        const headers = document.querySelectorAll('#appointmentTable thead th');
+        headers.forEach((header, index) => {
+            const icon = header.querySelector('i.bi-arrow-down-up, i.bi-arrow-up, i.bi-arrow-down');
+            if (icon && index <= 5) {
+                if (index === activeColumn) {
+                    icon.className = sortDirection[activeColumn] === 'asc'
+                        ? 'bi bi-arrow-up ms-auto text-primary'
+                        : 'bi bi-arrow-down ms-auto text-primary';
+                } else {
+                    icon.className = 'bi bi-arrow-down-up ms-auto opacity-50';
+                }
+            }
+        });
+    }
+
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const selectAll = document.getElementById("select-all");
+        const checkboxes = document.querySelectorAll(".row-checkbox");
+
+        // Toggle all checkboxes
+        selectAll.addEventListener("change", function () {
+            checkboxes.forEach(cb => cb.checked = selectAll.checked);
+        });
+
+        // If one row unchecked, uncheck "Select All"
+        checkboxes.forEach(cb => {
+            cb.addEventListener("change", function () {
+                if (!cb.checked) {
+                    selectAll.checked = false;
+                } else if ([...checkboxes].every(c => c.checked)) {
+                    selectAll.checked = true;
+                }
+            });
+        });
+    });
+</script>

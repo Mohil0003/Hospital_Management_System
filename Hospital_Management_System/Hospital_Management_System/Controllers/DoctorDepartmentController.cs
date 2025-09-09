@@ -189,37 +189,47 @@ namespace Hospital_Management_System.Controllers
                 return View("DoctorDepartmentAddEdit", model);
             }
 
-            using SqlConnection conn = new(_configuration.GetConnectionString("ConnectionString"));
-            conn.Open();
-            SqlCommand cmd = new();
-            cmd.Connection = conn;
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            if (model.DoctorDepartmentID == 0 || model.DoctorDepartmentID == null)
+            try
             {
-                cmd.CommandText = "PR_DoctorDepartment_Add";
-                cmd.Parameters.AddWithValue("@DoctorName", model.DoctorName);
-                cmd.Parameters.AddWithValue("@DepartmentName", model.DepartmentName);
-                cmd.Parameters.AddWithValue("@Created", model.Created);
-                cmd.Parameters.AddWithValue("@UserName", model.UserName);
+                using SqlConnection conn = new(_configuration.GetConnectionString("ConnectionString"));
+                conn.Open();
+                SqlCommand cmd = new();
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.StoredProcedure;
 
+                if (model.DoctorDepartmentID == 0 || model.DoctorDepartmentID == null)
+                {
+                    // Add new DoctorDepartment
+                    cmd.CommandText = "PR_DoctorDepartment_Add";
+                    cmd.Parameters.AddWithValue("@DoctorID", model.DoctorID);
+                    cmd.Parameters.AddWithValue("@DepartmentID", model.DepartmentID);
+                    cmd.Parameters.AddWithValue("@Modified", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@UserID", model.UserID);
+                }
+                else
+                {
+                    // Update existing DoctorDepartment
+                    cmd.CommandText = "[dbo].[PR_DoctorDepartment_Edit]";
+                    cmd.Parameters.AddWithValue("@DoctorDepartmentID", model.DoctorDepartmentID);
+                    cmd.Parameters.AddWithValue("@DoctorID", model.DoctorID);
+                    cmd.Parameters.AddWithValue("@DepartmentID", model.DepartmentID);
+                    cmd.Parameters.AddWithValue("@Modified", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@UserID", model.UserID);
+                }
+
+                cmd.ExecuteNonQuery();
+
+                TempData["SuccessMessage"] = (model.DoctorDepartmentID == null || model.DoctorDepartmentID == 0) ? "Doctor-Department mapping added successfully" : "Doctor-Department mapping updated successfully";
+                return RedirectToAction("DoctorDepartmentList");
             }
-            else
+            catch (Exception ex)
             {
-                cmd.CommandText = "[dbo].[PR_DoctorDepartment_Edit]";
-                cmd.Parameters.AddWithValue("@DoctorDepartmentID", model.DoctorDepartmentID);
+                TempData["ErrorMessage"] = "An error occurred while saving the mapping: " + ex.Message;
+                ViewBag.DoctorList = GetDoctorList();
+                ViewBag.DepartmentList = GetDepartmentList();
+                ViewBag.UserList = GetUserList();
+                return View("DoctorDepartmentAddEdit", model);
             }
-            //cmd.Parameters.AddWithValue("@DoctorDepartmentID", model.DoctorDepartmentID);
-            cmd.Parameters.AddWithValue("@DoctorID", model.DoctorID);
-            cmd.Parameters.AddWithValue("@DepartmentID", model.DepartmentID);
-            cmd.Parameters.AddWithValue("@Modified", model.Modified);
-            cmd.Parameters.AddWithValue("@UserID", model.UserID);
-
-
-            cmd.ExecuteNonQuery();
-
-            TempData["SuccessMessage"] = (model.DoctorDepartmentID == null || model.DoctorDepartmentID == 0) ? "Mapping added successfully" : "Mapping updated successfully";
-            return RedirectToAction("DoctorDepartmentList");
         }
 
         public IActionResult DoctorDepartmentList()

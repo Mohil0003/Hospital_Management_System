@@ -192,7 +192,56 @@ namespace Hospital_Management_System.Controllers
             return RedirectToAction("AppointmentList");
         }
 
+        public IActionResult AppointmentListSearch(IFormCollection formData)
+        {
+            string str = this._configuration.GetConnectionString("ConnectionString");
+            DataTable dt = new DataTable();
 
+            using (SqlConnection conn = new SqlConnection(str))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "PR_Appointment_GetAll_With_Search";
+
+                    // Doctor Name
+                    string doctorName = formData["doctorName"];
+                    cmd.Parameters.AddWithValue("@DoctorName", string.IsNullOrEmpty(doctorName) ? (object)DBNull.Value : doctorName);
+
+                    // Patient Name
+                    string patientName = formData["patientName"];
+                    cmd.Parameters.AddWithValue("@Name", string.IsNullOrEmpty(patientName) ? (object)DBNull.Value : patientName);
+
+                    // Start Date
+                    string startDateStr = formData["startDate"];
+                    if (string.IsNullOrEmpty(startDateStr))
+                        cmd.Parameters.AddWithValue("@StartDate", DBNull.Value);
+                    else
+                        cmd.Parameters.AddWithValue("@StartDate", DateTime.Parse(startDateStr));
+
+                    // End Date
+                    string endDateStr = formData["endDate"];
+                    if (string.IsNullOrEmpty(endDateStr))
+                        cmd.Parameters.AddWithValue("@EndDate", DBNull.Value);
+                    else
+                        cmd.Parameters.AddWithValue("@EndDate", DateTime.Parse(endDateStr));
+
+                    // Appointment Status
+                    string status = formData["status"];
+                    cmd.Parameters.AddWithValue("@AppointmentStatus", string.IsNullOrEmpty(status) ? (object)DBNull.Value : status);
+
+                    // Fill DataTable
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        dt.Load(reader);
+                    }
+                }
+            }
+
+            // Pass DataTable to view
+            return View("AppointmentList2", dt);
+        }
         public IActionResult AppointmentList()
         {
             string ConnectionString = this._configuration.GetConnectionString("ConnectionString");
@@ -226,6 +275,11 @@ namespace Hospital_Management_System.Controllers
             }
             TempData["SuccessMessage"] = "Appointment deleted successfully";
             return RedirectToAction("AppointmentList");
+        }
+
+        public IActionResult AppointmentFilter()
+        {
+            return View();
         }
     }
 }
