@@ -1,0 +1,2 @@
+D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System\wwwroot\assets\css\animated-background.css
+D:\Github\Hospital_Management_by_.NET\Hospital_Management_System\Hospital_Management_System\wwwroot\assets\js\animated-background.js
